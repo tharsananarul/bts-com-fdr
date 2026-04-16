@@ -37,64 +37,86 @@ export const CEJM_CHAPTERS: { annee1: ChapterContent[]; annee2: ChapterContent[]
     {
       id: 'ch2-12',
       number: '12',
-      title: "L'impact des mutations du travail sur l'emploi et les conditions de travail",
+      title: "L'impact des mutations du travail sur l'emploi",
       tag: 'RH / Management',
       content: [
         {
           id: 'gepp',
-          title: "I. La gestion prévisionnelle et l'adaptation des ressources",
+          title: "I. La GEPP et l'adaptation des RH",
           type: 'grid',
           items: [
             {
-              title: "1. La GEPP (Gestion des Emplois et des Parcours Professionnels)",
+              title: "🎯 1. La GEPP : Anticiper pour agir",
               color: 'blue',
               text: [
-                "La GEPP a pour vocation d'analyser les écarts entre les ressources humaines disponibles actuellement dans l'entreprise et les besoins futurs nécessaires à son développement. C'est un outil d'anticipation stratégique. En fonction de l'analyse réalisée, l'organisation met en place des actions appropriées :",
-                "• Si les besoins sont supérieurs aux ressources : L'organisation pourra envisager de recruter de nouveaux talents, de favoriser la promotion interne pour faire évoluer ses salariés, ou de les former pour qu'ils acquièrent les compétences manquantes.",
-                "• Si les ressources sont supérieures aux besoins : Il faudra envisager de réduire les effectifs, de proposer des mobilités internes (changer de poste ou de service) ou de réduire le temps de travail."
+                "Objectif : Analyser les écarts entre les RH actuelles et les besoins futurs de l'entreprise.",
+                "-> C'est un outil d'anticipation stratégique.",
+                "📉 Si Ressources > Besoins :",
+                "• Réduction des effectifs",
+                "• Mobilités internes (changement de poste)",
+                "• Réduction du temps de travail",
+                "📈 Si Besoins > Ressources :",
+                "• Recrutements de nouveaux talents",
+                "• Promotions internes",
+                "• Formations ciblées"
               ]
             },
             {
-              title: "2. La gestion des talents",
+              title: "⭐ 2. La gestion des talents",
               color: 'purple',
               text: [
-                "La gestion des talents vise à bénéficier d'un avantage compétitif en valorisant l'unicité et les compétences de chaque collaborateur. Cela permet à l'entreprise de gagner en souplesse et en réactivité face aux mutations du marché.",
-                "Cette démarche RH stratégique doit également permettre d'attirer, de détecter et de fidéliser les talents au sein de l'organisation."
+                "Pourquoi ? Obtenir un avantage compétitif en valorisant l'unicité de chaque collaborateur.",
+                "-> Permet un gain en souplesse et réactivité face aux mutations du marché.",
+                "Les 3 piliers stratégiques :",
+                "1️⃣ Attirer les talents via la Marque Employeur.",
+                "2️⃣ Détecter les potentiels en interne.",
+                "3️⃣ Fidéliser pour réduire le turn-over."
               ]
             }
           ]
         },
         {
           id: 'motivation',
-          title: "II. Les leviers et théories de la motivation",
+          title: "II. Leviers et théories de la motivation",
           type: 'grid',
           items: [
             {
-              title: "1. Les leviers d'action de l'employeur",
+              title: "🛠️ 1. Les leviers de l'employeur",
               color: 'green',
               text: [
-                "Pour agir sur la motivation des salariés, l'employeur dispose d'un certain nombre de leviers très concrets :",
-                "• La rémunération (salaire fixe, primes, bonus).",
-                "• L'épargne salariale (intéressement, participation).",
-                "• La gestion des carrières (perspectives d'évolution, bilans de compétences).",
-                "• L'aménagement du temps de travail (horaires flexibles, temps partiel choisi).",
-                "• La stabilité de l'emploi (contrats en CDI, sécurité face au chômage)."
+                "Comment agir concrètement sur la motivation ?",
+                "💰 Rémunération : Salaire fixe, primes, bonus.",
+                "📈 Épargne salariale : Intéressement, participation.",
+                "🚀 Gestion des carrières : Formations, perspectives d'évolution.",
+                "🕒 Temps de travail : Horaires flexibles, temps partiel choisi.",
+                "🛡️ Stabilité : Contrats CDI, sécurité face au chômage."
               ]
             },
             {
-              title: "2. Les grandes théories de la motivation",
+              title: "🧠 2. Théories de la motivation",
               color: 'amber',
               text: [
-                "• La pyramide d'Abraham Maslow : Il présente cinq besoins hiérarchisés que l'entreprise doit satisfaire pour motiver ses salariés. Ces besoins sont : le besoin physiologique (survie, salaire de base), le besoin de sécurité (stabilité, conditions de travail sûres), le besoin d'appartenance (intégration dans une équipe), le besoin d'estime ou de reconnaissance (respect, valorisation du travail), et le besoin d'épanouissement personnel (accomplissement, défis).",
-                "• La théorie bifactorielle de Frederick Herzberg : Il distingue deux types de facteurs distincts qui influencent la satisfaction au travail. D'une part, les facteurs d'hygiène, qui concernent l'environnement du travail (le salaire, les conditions de travail, la sécurité) ; leur absence crée de l'insatisfaction, mais leur présence ne motive pas durablement. D'autre part, les facteurs de motivation (ou moteurs), qui sont liés au travail en lui-même (l'intérêt de la mission, l'autonomie, la reconnaissance) et qui génèrent une véritable satisfaction."
+                "🔺 Pyramide de Maslow (5 besoins hiérarchisés) :",
+                "1. Physiologique (survie, salaire de base)",
+                "2. Sécurité (stabilité, conditions sûres)",
+                "3. Appartenance (intégration dans une équipe)",
+                "4. Estime (reconnaissance, respect)",
+                "5. Épanouissement personnel (accomplissement)",
+                "⚖️ Théorie bifactorielle d'Herzberg :",
+                "• Facteurs d'hygiène : Maintiennent un climat (salaire, sécurité).",
+                "• Facteurs de motivation : Donnent l'envie de s'impliquer (autonomie, défis, reconnaissance)."
               ]
             },
             {
-              title: "3. Le cas des nouvelles générations : les Digital Natives",
+              title: "💻 3. Le cas des Digital Natives",
               color: 'teal',
               text: [
-                "Les digital natives, également appelés « Millennials », sont les collaborateurs nés dans un environnement digitalisé. Leurs attentes diffèrent des générations précédentes : ils souhaitent travailler dans un environnement qui favorise les échanges et le développement individuel.",
-                "Pour répondre à leurs attentes, les entreprises doivent s'adapter en proposant des modes de travail collaboratifs, le recours au télétravail et la mise en place d'un management participatif (où le salarié est impliqué dans les décisions)."
+                "📱 Qui sont-ils ? Aussi appelés \"Millennials\", nés avec un smartphone dans la main.",
+                "Leurs attentes principales :",
+                "• 🤝 Des modes de travail ultra-collaboratifs.",
+                "• 🏠 Beaucoup plus de flexibilité (Télétravail banalisé).",
+                "• 🗣️ Du management participatif (besoin de codécider).",
+                "• 🎯 Une quête de sens : pourquoi je le fais, pour quel impact ?"
               ]
             }
           ]
@@ -113,25 +135,25 @@ export const CEJM_CHAPTERS: { annee1: ChapterContent[]; annee2: ChapterContent[]
           type: 'grid',
           items: [
             {
-              title: "1. Le Modèle LCAG",
+              title: "📊 1. Le Modèle LCAG",
               color: 'blue',
               text: [
-                "Développé dans les années 1960 par quatre professeurs de la Harvard Business School (Learned, Christensen, Andrews et Guth), le modèle LCAG propose une démarche stratégique en plusieurs étapes afin de déterminer les choix stratégiques d'une entreprise. Les étapes fondamentales sont :",
-                "• La réalisation du diagnostic stratégique.",
-                "• La fixation des objectifs stratégiques.",
-                "• La détermination de choix stratégiques pour atteindre ces objectifs.",
-                "Ce double diagnostic stratégique s'effectue au moyen d'un outil d'aide à la décision matriciel, appelé « FFOM » (Forces / Faiblesses, Menaces / Opportunités) ou « SWOT » (Strengths / Weaknesses, Opportunities / Threats). Il s'appuie sur :",
-                "• Un diagnostic stratégique externe : analyse des menaces et des opportunités présentes dans l'environnement général et concurrentiel.",
-                "• Un diagnostic stratégique interne : identification des forces et des faiblesses propres de l'entreprise."
+                "Démarche classique (Learned, Christensen, Andrews, Guth) :",
+                "1️⃣ Réaliser un diagnostic stratégique complet (FFOM/SWOT).",
+                "2️⃣ Fixer des objectifs stratégiques (long terme).",
+                "3️⃣ Déterminer des choix stratégiques pour les atteindre.",
+                "-> S'appuie sur un double diagnostic externe et interne."
               ]
             },
             {
-              title: "2. Stratégie délibérée vs Stratégie émergente (Henry Mintzberg)",
+              title: "🛤️ 2. Délibérée vs Émergente",
               color: 'teal',
               text: [
-                "Selon Henry Mintzberg, la démarche stratégique n'est pas linéaire et subit en permanence les perturbations de l'environnement. Il distingue donc :",
-                "• La stratégie délibérée : C'est celle qui est voulue dès le départ par la direction et planifiée pour plusieurs années.",
-                "• La stratégie émergente : Elle ne l'est pas ; elle surgit au cours du temps en fonction des aléas de l'environnement et des imprévus."
+                "Concept de Mintzberg : La stratégie subit toujours l'environnement.",
+                "🎯 Stratégie délibérée :",
+                "Planifiée et voulue dès le départ par la direction.",
+                "🌊 Stratégie émergente :",
+                "Improvisée, elle surgit face aux aléas et imprévus du marché."
               ]
             }
           ]
@@ -142,32 +164,40 @@ export const CEJM_CHAPTERS: { annee1: ChapterContent[]; annee2: ChapterContent[]
           type: 'grid',
           items: [
             {
-              title: "1. Le Macro-environnement (Outil PESTEL)",
+              title: "🌍 1. Le Macro (Outil PESTEL)",
               color: 'amber',
               text: [
-                "Il s'agit d'étudier l'environnement dans lequel l'entreprise évolue pour y déceler les éléments favorables (opportunités) et nuisibles (menaces). L'environnement global (ou macro-environnement) est l'ensemble des éléments externes qui peuvent influencer l'activité de l'entreprise et sur lesquels elle a généralement peu d'influence. Il englobe les caractéristiques générales de l'économie et de la société.",
-                "Ce diagnostic peut être réalisé à l'aide de l'outil PESTEL, qui prend en compte six dimensions factuelles : Politique, Économique, Socioculturel, Technologique, Écologique et Légal."
+                "Analyse de l'environnement global subi par l'entreprise :",
+                "🏛️ P = Politique (lois, stabilité).",
+                "📈 E = Économique (inflation, croissance).",
+                "👥 S = Socioculturel (tendances de consommation).",
+                "📱 T = Technologique (innovations, R&D).",
+                "🌱 E = Écologique (lois vertes, climat).",
+                "⚖️ L = Légal (droit du travail, normes)."
               ]
             },
             {
-              title: "2. Le Micro-environnement (Les 5 forces de Porter)",
+              title: "🥊 2. Le Micro (5 forces de Porter)",
               color: 'red',
               text: [
-                "Pour apprécier les forces concurrentielles en présence sur un marché donné (l'environnement proche de l'entreprise), on utilise le modèle des cinq forces concurrentielles proposé par Michael Porter. Ces forces qui exercent une pression sont :",
-                "• Les concurrents directs : Déjà en place, ils sont rivaux car ils proposent des produits identiques.",
-                "• Les concurrents potentiels (nouveaux entrants) : Ils pourraient entrer sur le marché s'il n'est pas protégé et venir concurrencer les entreprises en place (la protection se fait par l'innovation, des coûts d'installation importants, des brevets ou une autorisation de mise sur le marché).",
-                "• Les concurrents indirects (produits de substitution) : Ils proposent des produits différents en apparence, mais qui répondent à un besoin des consommateurs identique.",
-                "• Les fournisseurs : Ils peuvent détenir un pouvoir de négociation important sur l'entreprise s'ils sont puissants, concentrés et incontournables.",
-                "• Les clients : Ils peuvent détenir un pouvoir de négociation important sur l'entreprise s'ils sont puissants et organisés, pesant ainsi sur les prix ou la qualité."
+                "L'environnement concurrentiel (ceux qui exercent une pression) :",
+                "⚔️ 1. Concurrents directs : Rivaux déjà en place.",
+                "🚪 2. Nouveaux entrants : Menace d'entrée sur le marché (si pas de barrières).",
+                "🔄 3. Produits de substitution : Répondent au même besoin autrement.",
+                "🛒 4. Fournisseurs : S'ils sont incontournables, ils imposent leurs prix.",
+                "💳 5. Clients : S'ils sont puissants, ils exigent plus pour moins cher."
               ]
             },
             {
-              title: "3. Les Facteurs Clés de Succès (FCS)",
+              title: "🗝️ 3. Facteurs Clés de Succès (FCS)",
               color: 'purple',
               text: [
-                "Le diagnostic externe permet de repérer les facteurs clés de succès (FCS) à maîtriser impérativement sur un marché. Un FCS est un élément essentiel qui garantit le succès d'une entreprise dans un domaine donné.",
-                "Il peut s'agir d'une qualité comme l'agilité, d'une caractéristique du produit comme le prix, l'image ou les fonctionnalités, d'une compétence comme un savoir-faire technologique, ou d'une relation avec des tiers comme la fidélisation client.",
-                "Il doit répondre spécifiquement aux besoins du marché tout en constituant une ressource ou une force exploitable par l'entreprise."
+                "Définition : Élément essentiel à maîtriser pour réussir sur un marché.",
+                "-> Pré-requis incontournable pour survivre.",
+                "Exemples de FCS :",
+                "• L'agilité ou la rapidité d'exécution.",
+                "• La maîtrise des coûts pour casser les prix.",
+                "• Un savoir-faire technologique unique."
               ]
             }
           ]
@@ -178,31 +208,36 @@ export const CEJM_CHAPTERS: { annee1: ChapterContent[]; annee2: ChapterContent[]
           type: 'grid',
           items: [
             {
-              title: "1. La théorie des ressources (Edith Penrose, 1959)",
+              title: "💎 1. La théorie des ressources",
               color: 'green',
               text: [
-                "Il évalue la capacité intrinsèque de l'entreprise à affronter son marché. La théorie définit la firme comme un ensemble de ressources dont le succès résulte de sa capacité à mobiliser et exploiter des ressources clés ou spécifiques, c'est-à-dire celles qui vont créer de la valeur et qui sont rares. Les ressources détenues peuvent être de différentes natures :",
-                "• Tangibles : Ressources matérielles, financières, humaines et physiques.",
-                "• Intangibles : Ressources immatérielles comme les capacités organisationnelles, technologiques et réputationnelles (image de marque)."
+                "Par Edith Penrose : Ce sont les ressources spécifiques (rares) qui créent de la valeur.",
+                "📦 Ressources Tangibles :",
+                "Matérielles, financières, physiques, humaines.",
+                "✨ Ressources Intangibles :",
+                "Savoir-faire, image de marque, brevets, innovations technologiques."
               ]
             },
             {
-              title: "2. La théorie des compétences (Gary Hamel et C.K. Prahalad, 1993)",
+              title: "🧠 2. La théorie des compétences",
               color: 'blue',
               text: [
-                "Une compétence correspond à ce que sait faire l'entreprise avec ses ressources ; c'est la manière de les combiner qui va leur donner de la valeur.",
-                "Les compétences deviennent fondamentales ou distinctives si elles permettent à l'entreprise de se différencier de façon stratégique de ses concurrents.",
-                "Elles contribuent à un avantage concurrentiel durable en permettant de gagner en qualité, flexibilité et rapidité d'exécution grâce à une expertise, en facilitant l'accès à un grand nombre de marchés via le management des marques ou la distribution, ou en distinguant le produit par son caractère unique et innovant."
+                "Par Hamel & Prahalad : Une ressource n'est rien sans la compétence ! c'est la façon dont on l'utilise qui compte.",
+                "-> C'est la manière de combiner les ressources qui donne un avantage.",
+                "🌟 Les compétences fondamentales :",
+                "Capacité d'innovation, flexibilité, design unique pour se différencier durablement."
               ]
             },
             {
-              title: "3. La chaîne de valeur (Michael Porter, 1985)",
+              title: "🔗 3. La chaîne de valeur",
               color: 'amber',
               text: [
-                "Cet outil représente l'entreprise comme un enchaînement d'activités, en distinguant les activités principales (qui touchent directement au produit : logistique, production, vente) des activités de soutien (qui viennent en appui : RH, achats, infrastructures).",
-                "• Le but : Repérer les activités qui génèrent le plus de valeur pour le client final, et identifier celles qui ne créent pas de valeur et génèrent uniquement des coûts.",
-                "• La décision : Il s'agit alors de se concentrer sur les activités génératrices de valeur, tandis que pour les secondes, se pose la question stratégique de les conserver en interne ou de les externaliser (sous-traiter).",
-                "Les activités et les liens entre ces activités qui génèrent le plus de valeur vont constituer l'avantage concurrentiel de l'entreprise, sa source de différenciation par rapport à la concurrence."
+                "Par Michael Porter : Décomposer l'entreprise pour chasser les coûts inutiles.",
+                "⚙️ Activités de soutien (les appuis) :",
+                "RH, Achats, R&D, Infrastructures.",
+                "🚀 Activités principales (cœur du réacteur) :",
+                "Logistique, Production, Marketing, Ventes, Services.",
+                "-> Le but : Externaliser (sous-traiter) ce qui ne génère pas de valeur, pour se concentrer sur son cœur de métier."
               ]
             }
           ]
@@ -604,6 +639,94 @@ export const SUBJECTS: Subject[] = [
     tag: 'Droit & Éco',
     description: "Culture Économique, Juridique et Managériale.",
     sections: [
+      {
+        id: 'methodologie',
+        title: 'Méthodologie',
+        badge: 'Outils',
+        badgeColor: 'purple',
+        content: {
+          type: 'subsections',
+          subsections: [
+            {
+              id: 'pestel',
+              title: "1. L'Analyse de l'Environnement (PESTEL)",
+              type: 'grid',
+              items: [
+                {
+                  title: "Quand l'utiliser ?",
+                  color: 'blue',
+                  text: 'Dès que l\'on te demande d\'analyser le "macro-environnement", d\'identifier les facteurs externes qui influencent l\'entreprise ou de chercher des Opportunités et des Menaces.'
+                },
+                {
+                  title: "La Méthode (6 dimensions)",
+                  color: 'green',
+                  text: [
+                    "P (Politique) : Stabilité gouvernementale, politique fiscale, commerce extérieur.",
+                    "E (Économique) : Croissance (PIB), taux d'intérêt, inflation, pouvoir d'achat.",
+                    "S (Socioculturel) : Démographie, habitudes de consommation, niveau d'éducation.",
+                    "T (Technologique) : Innovations, dépenses en R&D, nouveaux brevets.",
+                    "E (Écologique) : Lois sur la protection de l'environnement, recyclage, consommation d'énergie.",
+                    "L (Légal) : Droit du travail, droit de la consommation, normes de sécurité."
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'swot',
+              title: "2. Le Diagnostic Stratégique (SWOT / FFOM)",
+              type: 'grid',
+              items: [
+                {
+                  title: "Quand l'utiliser ?",
+                  color: 'amber',
+                  text: "C'est l'outil de synthèse par excellence. Il permet de croiser les capacités de l'entreprise avec son marché."
+                },
+                {
+                  title: "Le Diagnostic Interne",
+                  color: 'teal',
+                  text: [
+                    "Ce que l'entreprise contrôle :",
+                    "• Forces : Atouts, savoir-faire, ressources financières solides, bonne image.",
+                    "• Faiblesses : Manque de compétences, site web obsolète, faible notoriété."
+                  ]
+                },
+                {
+                  title: "Le Diagnostic Externe",
+                  color: 'red',
+                  text: [
+                    "Ce que l'entreprise subit :",
+                    "• Opportunités : Marché en croissance, nouvelles lois favorables (Loi AGEC), boom du e-commerce.",
+                    "• Menaces : Arrivée d'un nouveau concurrent, hausse du prix des matières premières."
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'syllogisme',
+              title: "3. Le Raisonnement Juridique (Le Syllogisme)",
+              type: 'grid',
+              items: [
+                {
+                  title: "Quand l'utiliser ?",
+                  color: 'blue',
+                  text: 'Pour répondre à toute question de droit (Mission 1.3, 2.3 ou 3.3 du cas Gemdoubs par exemple). C\'est la structure qui garantit le maximum de points.'
+                },
+                {
+                  title: "Les 5 étapes clés",
+                  color: 'purple',
+                  text: [
+                    "1. Les Faits : Résumer la situation de manière qualifiée juridiquement (ne pas dire \"le monsieur\", mais \"le salarié\" ou \"le créancier\").",
+                    "2. Le Problème de droit : Poser la question sous forme juridique (ex: \"L'employeur peut-il utiliser des images de vidéosurveillance sans informer le salarié ?\").",
+                    "3. La Majeure (La Règle) : Citer les articles de loi ou les principes juridiques applicables (Code civil, Code du travail).",
+                    "4. La Mineure (L'Application) : Vérifier si, dans le cas présent, les conditions de la loi sont remplies.",
+                    "5. La Conclusion : Répondre clairement à la question posée."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         id: 'annee1',
         title: '1ère Année',

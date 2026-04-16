@@ -40,12 +40,12 @@ export default function App() {
         setActiveCejmChapter(null);
         return;
       }
-      
+
       const parts = hash.split('/');
       const subjId = parts[0];
       const sectId = parts[1];
       const chapId = parts[2];
-      
+
       const subj = SUBJECTS.find(s => s.id === subjId);
       if (subj) {
         setActiveSubject(subj);
@@ -59,7 +59,7 @@ export default function App() {
         } else {
           setActiveSection(subj.sections[0]);
         }
-        
+
         if (chapId && subj.id === 'cejm') {
           const allChapters = [...CEJM_CHAPTERS.annee1, ...CEJM_CHAPTERS.annee2];
           const chap = allChapters.find(c => c.id === chapId);
@@ -73,7 +73,7 @@ export default function App() {
 
     window.addEventListener('hashchange', syncStateFromHash);
     syncStateFromHash();
-    
+
     return () => window.removeEventListener('hashchange', syncStateFromHash);
   }, []);
 
@@ -458,6 +458,7 @@ export default function App() {
       case 'placeholder': return renderPlaceholder(content);
       case 'construction': return renderConstruction(content);
       case 'exces-full': return renderSubsections(content.subsections);
+      case 'subsections': return renderSubsections(content.subsections);
       case 'cejm-chapters': return renderCejmChapters(content);
       default: return <p className="text-muted text-sm">Contenu introuvable.</p>;
     }
@@ -467,7 +468,7 @@ export default function App() {
     <div className="min-h-screen flex flex-col bg-bg-page selection:bg-accent selection:text-black">
       {/* Header */}
       <header className="h-16 md:h-20 border-b border-border-theme px-4 md:px-10 flex items-center justify-between sticky top-0 bg-bg-page/95 backdrop-blur-md z-50">
-        <div 
+        <div
           className="flex items-center gap-3 cursor-pointer group"
           onClick={handleGoHome}
         >
@@ -626,8 +627,8 @@ export default function App() {
               </div>
             </div>
 
-            {/* Tips & Warnings — only show for non-construction/non-chapter content */}
-            {activeSection.content.type !== 'construction' && activeSection.content.type !== 'cejm-chapters' && (
+            {/* Tips & Warnings — only show for non-construction/non-chapter content in bloc1 */}
+            {activeSubject.id === 'bloc1' && activeSection.content.type !== 'construction' && activeSection.content.type !== 'cejm-chapters' && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-5 md:p-6 bg-bg-card border border-border-theme flex gap-4">
                   <CheckCircle2 className="text-accent flex-shrink-0" size={18} />
