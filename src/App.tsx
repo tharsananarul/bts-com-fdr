@@ -660,7 +660,7 @@ export default function App() {
               <img
                 src={`${import.meta.env.BASE_URL}images/Logo%20T%20Orange.png`}
                 alt="Logo T"
-                className="h-full w-auto object-contain"
+                className="h-full w-auto object-contain rounded-lg"
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = 'none';
                   const sibling = (e.target as HTMLElement).nextElementSibling;
@@ -796,7 +796,7 @@ export default function App() {
             <img
               src={`${import.meta.env.BASE_URL}images/Logo%20T%20Orange.png`}
               alt="Logo T"
-              className="h-full w-auto object-contain"
+              className="h-full w-auto object-contain rounded-md"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = 'none';
                 const sibling = (e.target as HTMLElement).nextElementSibling;
