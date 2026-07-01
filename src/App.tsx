@@ -169,7 +169,7 @@ export default function App() {
 
   const renderSwot = (content: any) => (
     <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border-theme border border-border-theme rounded-2xl overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {content.items.map((item: any, i: number) => (
           <motion.div 
             key={item.title} 
@@ -177,23 +177,25 @@ export default function App() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20px" }}
             transition={{ delay: i * 0.05, duration: 0.4 }}
-            className="p-5 md:p-6 bg-bg-card group transition-colors hover:bg-bg-page/40"
+            className="p-5 md:p-6 bg-bg-card border border-border-theme rounded-2xl group hover:border-accent/30 hover:shadow-[0_0_20px_rgba(251,191,36,0.03)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between"
           >
-            <h4 className={cn(
-              "text-xs md:text-sm font-black mb-4 flex items-center gap-2 uppercase tracking-wider",
-              item.color === 'green' && "text-emerald-500",
-              item.color === 'red' && "text-rose-500",
-              item.color === 'blue' && "text-blue-500",
-              item.color === 'amber' && "text-amber-500",
-            )}>{item.title}</h4>
-            <ul className="space-y-2 md:space-y-3 mb-6">
-              {item.items.map((li: string) => (
-                <li key={li} className="text-xs text-text-muted font-medium flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-accent rounded-full mt-1.5 flex-shrink-0" />
-                  <span>{li}</span>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <h4 className={cn(
+                "text-xs md:text-sm font-black mb-4 flex items-center gap-2 uppercase tracking-wider",
+                item.color === 'green' && "text-emerald-500",
+                item.color === 'red' && "text-rose-500",
+                item.color === 'blue' && "text-blue-500",
+                item.color === 'amber' && "text-amber-500",
+              )}>{item.title}</h4>
+              <ul className="space-y-2 md:space-y-3 mb-6">
+                {item.items.map((li: string) => (
+                  <li key={li} className="text-xs text-text-muted font-medium flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full mt-1.5 flex-shrink-0" />
+                    <span>{li}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
             <p className="text-[10px] uppercase font-bold text-text-muted/60 tracking-wider">
               {item.example}
             </p>
@@ -214,59 +216,130 @@ export default function App() {
     </div>
   );
 
-  const renderTable = (content: any) => (
-    <div className="space-y-8">
-      <div className="overflow-x-auto border border-border-theme rounded-2xl">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="bg-bg-page border-b border-border-theme">
-              {content.headers.map((header: string) => (
-                <th key={header} className="p-4 text-[10px] md:text-xs font-black uppercase tracking-widest text-text-main border-r border-border-theme last:border-0">
-                  {header}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {content.rows.map((row: string[], i: number) => (
-              <tr key={i} className="border-b border-border-theme last:border-0 hover:bg-bg-page/40 transition-colors">
-                {row.map((cell, j) => (
-                  <td key={j} className="p-4 text-xs text-text-muted font-medium border-r border-border-theme last:border-0">
-                    {cell}
-                  </td>
+  const renderTable = (content: any) => {
+    const renderMobileTable = () => (
+      <div className="space-y-4 md:hidden">
+        {content.rows.map((row: string[], i: number) => {
+          // Si le tableau a 4 colonnes (ex: tableau Mémo D.P.P.O.C.M.B.K)
+          if (content.headers.length === 4) {
+            return (
+              <div key={i} className="bg-bg-card border border-border-theme rounded-2xl p-5 space-y-3.5 shadow-sm">
+                <div className="flex items-center gap-3 border-b border-border-theme pb-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent font-black text-sm border border-accent/20">
+                    {row[0]}
+                  </div>
+                  <span className="text-sm font-black text-text-main uppercase tracking-tight">{row[1]}</span>
+                </div>
+                <div className="grid grid-cols-1 gap-2.5">
+                  <div>
+                    <span className="text-[10px] uppercase font-black tracking-wider text-text-muted block mb-0.5">{content.headers[2]}</span>
+                    <span className="text-xs text-text-main font-medium">{row[2]}</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-black tracking-wider text-rose-500 block mb-0.5">{content.headers[3]}</span>
+                    <span className="text-xs text-text-main font-bold p-2.5 bg-rose-500/5 border border-rose-500/10 rounded-xl block leading-relaxed">{row[3]}</span>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+          
+          // Si le tableau a 3 colonnes (ex: Loi Évin)
+          if (content.headers.length === 3) {
+            return (
+              <div key={i} className="bg-bg-card border border-border-theme rounded-2xl p-5 space-y-3.5 shadow-sm">
+                <div className="border-b border-border-theme pb-2.5">
+                  <span className="text-xs font-black text-text-main uppercase tracking-wider">{row[0]}</span>
+                </div>
+                <div className="grid grid-cols-1 gap-3">
+                  <div>
+                    <span className="text-[10px] uppercase font-black tracking-wider text-rose-500 block mb-0.5">{content.headers[1]}</span>
+                    <span className="text-xs text-text-main font-medium p-2.5 bg-rose-500/5 border border-rose-500/10 rounded-xl block leading-relaxed">{row[1]}</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-black tracking-wider text-emerald-500 block mb-0.5">{content.headers[2]}</span>
+                    <span className="text-xs text-text-main font-medium p-2.5 bg-emerald-500/5 border border-emerald-500/10 rounded-xl block leading-relaxed">{row[2]}</span>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
+          // Rendu générique par défaut pour 2 colonnes ou autre
+          return (
+            <div key={i} className="bg-bg-card border border-border-theme rounded-2xl p-5 space-y-3 shadow-sm">
+              <div className="border-b border-border-theme pb-2.5">
+                <span className="text-xs font-black text-text-main uppercase tracking-wider">{row[0]}</span>
+              </div>
+              <div>
+                <span className="text-[10px] uppercase font-black tracking-wider text-text-muted block mb-0.5">{content.headers[1]}</span>
+                <span className="text-xs text-text-main font-medium leading-relaxed">{row[1]}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+
+    return (
+      <div className="space-y-8">
+        {/* Vue Mobile (Cartes adaptatives) */}
+        {renderMobileTable()}
+
+        {/* Vue Desktop (Tableau standard) */}
+        <div className="hidden md:block overflow-x-auto border border-border-theme rounded-2xl">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="bg-bg-page border-b border-border-theme">
+                {content.headers.map((header: string) => (
+                  <th key={header} className="p-4 text-[10px] md:text-xs font-black uppercase tracking-widest text-text-main border-r border-border-theme last:border-0">
+                    {header}
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      {content.extra && (
-        <div className="space-y-4">
-          <h4 className="text-xs md:text-sm font-black uppercase tracking-tight text-text-main">{content.extra.title}</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {content.extra.items.map((item: any) => (
-              <div key={item.label} className="p-5 bg-bg-card border border-border-theme rounded-2xl">
-                <span className={cn(
-                  "text-[10px] font-black uppercase tracking-wider mb-3 block",
-                  item.color === 'green' ? "text-emerald-500" : "text-rose-500"
-                )}>
-                  {item.label}
-                </span>
-                <ul className="space-y-2.5">
-                  {item.list.map((li: string) => (
-                    <li key={li} className="text-xs text-text-muted font-medium flex items-start gap-2">
-                      <div className={cn("w-1.5 h-1.5 rounded-full mt-1.5", item.color === 'green' ? "bg-emerald-500" : "bg-rose-500")} />
-                      <span>{li}</span>
-                    </li>
+            </thead>
+            <tbody>
+              {content.rows.map((row: string[], i: number) => (
+                <tr key={i} className="border-b border-border-theme last:border-0 hover:bg-bg-page/40 transition-colors">
+                  {row.map((cell, j) => (
+                    <td key={j} className="p-4 text-xs text-text-muted font-medium border-r border-border-theme last:border-0">
+                      {cell}
+                    </td>
                   ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      )}
-    </div>
-  );
+
+        {content.extra && (
+          <div className="space-y-4">
+            <h4 className="text-xs md:text-sm font-black uppercase tracking-tight text-text-main">{content.extra.title}</h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {content.extra.items.map((item: any) => (
+                <div key={item.label} className="p-5 bg-bg-card border border-border-theme rounded-2xl">
+                  <span className={cn(
+                    "text-[10px] font-black uppercase tracking-wider mb-3 block",
+                    item.color === 'green' ? "text-emerald-500" : "text-rose-500"
+                  )}>
+                    {item.label}
+                  </span>
+                  <ul className="space-y-2.5">
+                    {item.list.map((li: string) => (
+                      <li key={li} className="text-xs text-text-muted font-medium flex items-start gap-2">
+                        <div className={cn("w-1.5 h-1.5 rounded-full mt-1.5", item.color === 'green' ? "bg-emerald-500" : "bg-rose-500")} />
+                        <span>{li}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
 
   const renderFormula = (content: any) => (
     <div className="space-y-6 md:space-y-8">
@@ -276,9 +349,9 @@ export default function App() {
           {content.formula}
         </p>
       </div>
-      <div className="grid gap-px bg-border-theme rounded-2xl overflow-hidden border border-border-theme">
+      <div className="grid grid-cols-1 gap-4">
         {content.examples.map((ex: any) => (
-          <div key={ex.label} className="p-5 md:p-6 bg-bg-card hover:bg-bg-page/40 transition-colors">
+          <div key={ex.label} className="p-5 md:p-6 bg-bg-card border border-border-theme rounded-2xl hover:border-accent/30 hover:shadow-[0_0_20px_rgba(251,191,36,0.03)] hover:-translate-y-0.5 transition-all duration-300">
             <span className="text-[10px] font-black text-text-muted uppercase tracking-wider mb-2 block">{ex.label}</span>
             <p className="text-xs md:text-sm text-text-main font-medium italic">"{ex.text}"</p>
           </div>
@@ -295,7 +368,7 @@ export default function App() {
 
   const renderGrid = (content: any) => (
     <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border-theme border border-border-theme rounded-2xl overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {content.items.map((item: any, i: number) => (
           <motion.div 
             key={item.title} 
@@ -303,29 +376,31 @@ export default function App() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-20px" }}
             transition={{ delay: i * 0.05, duration: 0.4 }}
-            className="p-5 md:p-6 bg-bg-card hover:bg-bg-page/40 transition-colors"
+            className="p-5 md:p-6 bg-bg-card border border-border-theme rounded-2xl hover:border-accent/30 hover:shadow-[0_0_20px_rgba(251,191,36,0.03)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between"
           >
-            <h4 className={cn(
-              "text-xs md:text-sm font-black mb-3 uppercase tracking-wider",
-              item.color === 'blue' && "text-blue-500",
-              item.color === 'green' && "text-emerald-500",
-              item.color === 'amber' && "text-amber-500",
-              item.color === 'red' && "text-rose-500",
-              item.color === 'purple' && "text-purple-500",
-              item.color === 'teal' && "text-teal-500",
-            )}>
-              {item.title}
-            </h4>
-            <div className="space-y-2.5">
-              {Array.isArray(item.text) ? (
-                item.text.map((p: string, idx: number) => (
-                  <p key={idx} className={cn("text-xs font-medium", p.startsWith('Ex.') || p.startsWith('->') ? "text-text-muted italic" : "text-text-muted")}>
-                    {p}
-                  </p>
-                ))
-              ) : (
-                <p className="text-xs text-text-muted font-medium">{item.text}</p>
-              )}
+            <div>
+              <h4 className={cn(
+                "text-xs md:text-sm font-black mb-3 uppercase tracking-wider",
+                item.color === 'blue' && "text-blue-500",
+                item.color === 'green' && "text-emerald-500",
+                item.color === 'amber' && "text-amber-500",
+                item.color === 'red' && "text-rose-500",
+                item.color === 'purple' && "text-purple-500",
+                item.color === 'teal' && "text-teal-500",
+              )}>
+                {item.title}
+              </h4>
+              <div className="space-y-2.5">
+                {Array.isArray(item.text) ? (
+                  item.text.map((p: string, idx: number) => (
+                    <p key={idx} className={cn("text-xs font-medium", p.startsWith('Ex.') || p.startsWith('->') ? "text-text-muted italic" : "text-text-muted")}>
+                      {p}
+                    </p>
+                  ))
+                ) : (
+                  <p className="text-xs text-text-muted font-medium">{item.text}</p>
+                )}
+              </div>
             </div>
           </motion.div>
         ))}
@@ -350,7 +425,7 @@ export default function App() {
   );
 
   const renderList = (content: any) => (
-    <div className="grid gap-px bg-border-theme border border-border-theme rounded-2xl overflow-hidden">
+    <div className="grid grid-cols-1 gap-4">
       {content.items.map((item: any, i: number) => (
         <motion.div 
           key={item.title} 
@@ -358,7 +433,7 @@ export default function App() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: i * 0.05, duration: 0.3 }}
-          className="p-5 md:p-6 bg-bg-card flex items-start gap-4 group hover:bg-bg-page/40 transition-colors"
+          className="p-5 md:p-6 bg-bg-card border border-border-theme rounded-2xl flex items-start gap-4 group hover:border-accent/30 hover:shadow-[0_0_20px_rgba(251,191,36,0.03)] hover:-translate-y-0.5 transition-all duration-300"
         >
           <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0 group-hover:scale-150 transition-transform" />
           <div className="flex-1">
