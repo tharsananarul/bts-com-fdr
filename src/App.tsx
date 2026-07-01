@@ -697,26 +697,6 @@ export default function App() {
                   {renderContent(activeSection.content)}
                 </div>
               </div>
-
-              {/* Tips & Warnings — only show for non-construction/non-chapter content in bloc1 */}
-              {activeSubject.id === 'bloc1' && activeSection.content.type !== 'construction' && activeSection.content.type !== 'cejm-chapters' && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="p-5 md:p-6 bg-bg-card border border-border-theme flex gap-4">
-                    <CheckCircle2 className="text-accent flex-shrink-0" size={18} />
-                    <div>
-                      <h5 className="text-[9px] md:text-[10px] font-black text-accent uppercase tracking-widest mb-2">Conseil Expert</h5>
-                      <p className="text-[11px] md:text-xs text-muted font-medium">Justifie toujours tes choix par rapport aux cibles pour gagner des points.</p>
-                    </div>
-                  </div>
-                  <div className="p-5 md:p-6 bg-bg-card border border-border-theme flex gap-4">
-                    <AlertCircle className="text-rose-500 flex-shrink-0" size={18} />
-                    <div>
-                      <h5 className="text-[9px] md:text-[10px] font-black text-rose-500 uppercase tracking-widest mb-2">Piège à éviter</h5>
-                      <p className="text-[11px] md:text-xs text-muted font-medium">Ne confonds pas objectif affectif (image) et conatif (action).</p>
-                    </div>
-                  </div>
-                </div>
-              )}
             </motion.div>
           </AnimatePresence>
         </main>
