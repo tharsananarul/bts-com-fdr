@@ -227,17 +227,33 @@ export const SUBJECTS: Subject[] = [
     description: "Les 8 étapes du plan de com — D·P·P·O·C·M·B·K",
     sections: [
       {
-        id: 'diagnostic',
-        title: '1. Diagnostic',
-        badge: 'SWOT & PESTEL',
+        id: 'plan',
+        title: 'Plan de Communication',
+        badge: 'D·P·P·O·C·M·B·K',
         badgeColor: 'blue',
-        description: "On photographie la situation avant d'agir. SWOT + PESTEL.",
+        description: "Les 8 étapes du plan de com + le Brief Créatif",
         content: {
           type: 'subsections',
           subsections: [
             {
+              id: 'recap',
+              title: '🗝️ Mémo D·P·P·O·C·M·B·K',
+              type: 'table',
+              headers: ['Lettre', 'Étape', 'Question clé', 'Piège à éviter'],
+              rows: [
+                ['D', 'Diagnostic (SWOT)', 'Où en est-on ?', "Oublier l'analyse externe (PESTEL)."],
+                ['P', 'Problème de com', 'Quel défi à résoudre ?', 'Oublier le « alors que » (le frein).'],
+                ['P', 'Positionnement', 'Quelle image voulue ?', 'Oublier un des 4 critères CDAD.'],
+                ['O', 'Objectifs (SMART)', 'Quoi obtenir ?', 'Oublier un des 3 niveaux CAC.'],
+                ['C', 'Cibles', 'À qui parler ?', 'Oublier les cibles relais et interne.'],
+                ['M', 'Moyens (POEM)', 'Quels canaux ?', 'Lister sans justifier par rapport à la cible.'],
+                ['B', 'Budget', 'Combien ça coûte ?', 'Ne pas ventiler (répartir) le budget.'],
+                ['K', 'KPI & Bilan', 'Comment mesurer ?', 'KPI déconnectés des objectifs fixés.']
+              ]
+            },
+            {
               id: 'swot',
-              title: '📊 La Matrice SWOT',
+              title: '📊 Étape 1 — La Matrice SWOT',
               type: 'grid',
               items: [
                 {
@@ -290,53 +306,34 @@ export const SUBJECTS: Subject[] = [
                 { title: '🌱 E — Environnemental', color: 'green', text: ["Écologie, météo, normes environnementales, recyclage."] },
                 { title: '⚖️ L — Légal', color: 'red', text: ["Lois, RGPD, droit du travail, normes de sécurité, Loi AGEC.", "-> Ex : Loi interdisant les emballages plastiques = menace pour une marque d'eau, opportunité pour une marque de gourdes."] }
               ]
-            }
-          ]
-        }
-      },
-      {
-        id: 'probleme',
-        title: '2. Problème de com',
-        description: "Le défi central de la campagne. Toujours sous la forme : « Comment... alors que... ? »",
-        content: {
-          type: 'formula',
-          formula: "« Comment [objectif / ambition] alors que [obstacle / frein / préjugé] ? »",
-          examples: [
-            { label: 'Exemple — Reconditionnement B2B', text: "« Comment faire de Recyclea LA référence du reconditionnement B2B alors que les entreprises ont une image vieillotte et méfiante du reconditionné ? »" },
-            { label: 'Exemple — Formation artisanale', text: "« Comment informer et inciter des jeunes à intégrer un centre de formation artisanal, alors que l'artisanat est perçu comme peu attractif et peu lucratif ? »" },
-            { label: 'Exemple — Culture / Spectacle', text: "« Comment attirer les jeunes vers l'opéra, alors que cette musique est perçue comme élitiste et chère ? »" }
-          ],
-          tip: "Le 'comment' = ton objectif de communication. Le 'alors que' = le frein principal tiré directement de ton SWOT (souvent une faiblesse ou une menace)."
-        }
-      },
-      {
-        id: 'positionnement',
-        title: '3. Positionnement',
-        badge: 'CDAD',
-        badgeColor: 'blue',
-        description: "La place que la marque veut occuper dans l'esprit de la cible.",
-        content: {
-          type: 'grid',
-          items: [
-            { title: '✅ Crédible', color: 'blue', text: "La promesse est réaliste et justifiée par des preuves réelles (Labels, prix, ancienneté, certifications)." },
-            { title: '🎯 Distinctif', color: 'green', text: "L'offre se démarque clairement des concurrents. Avantage unique, différent de la concurrence." },
-            { title: '💡 Attractif', color: 'amber', text: "Répond à un besoin réel ou une attente forte de la cible. Donne envie." },
-            { title: '⏳ Durable', color: 'red', text: "Peut être maintenu et défendu sur le long terme. Pas un simple effet de mode." }
-          ],
-          formula: "« [La marque] se positionne comme [image souhaitée] pour [cible précise], grâce à [preuve / différenciation]. »"
-        }
-      },
-      {
-        id: 'objectifs',
-        title: '4. Objectifs',
-        badge: 'CAC + SMART',
-        badgeColor: 'purple',
-        content: {
-          type: 'subsections',
-          subsections: [
+            },
+            {
+              id: 'probleme',
+              title: '💬 Étape 2 — Le Problème de com',
+              type: 'formula',
+              formula: "« Comment [objectif / ambition] alors que [obstacle / frein / préjugé] ? »",
+              examples: [
+                { label: 'Exemple — Reconditionnement B2B', text: "« Comment faire de Recyclea LA référence du reconditionnement B2B alors que les entreprises ont une image vieillotte et méfiante du reconditionné ? »" },
+                { label: 'Exemple — Formation artisanale', text: "« Comment informer et inciter des jeunes à intégrer un centre de formation artisanal, alors que l'artisanat est perçu comme peu attractif et peu lucratif ? »" },
+                { label: 'Exemple — Culture / Spectacle', text: "« Comment attirer les jeunes vers l'opéra, alors que cette musique est perçue comme élitiste et chère ? »" }
+              ],
+              tip: "Le 'comment' = ton objectif de communication. Le 'alors que' = le frein principal tiré directement de ton SWOT (souvent une faiblesse ou une menace)."
+            },
+            {
+              id: 'positionnement',
+              title: '📍 Étape 3 — Le Positionnement',
+              type: 'grid',
+              items: [
+                { title: '✅ Crédible', color: 'blue', text: "La promesse est réaliste et justifiée by des preuves réelles (Labels, prix, ancienneté, certifications)." },
+                { title: '🎯 Distinctif', color: 'green', text: "L'offre se démarque clairement des concurrents. Avantage unique, différent de la concurrence." },
+                { title: '💡 Attractif', color: 'amber', text: "Répond à un besoin réel ou une attente forte de la cible. Donne envie." },
+                { title: '⏳ Durable', color: 'red', text: "Peut être maintenu et défendu sur le long terme. Pas un simple effet de mode." }
+              ],
+              formula: "« [La marque] se positionne comme [image souhaitée] pour [cible précise], grâce à [preuve / différenciation]. »"
+            },
             {
               id: 'cac',
-              title: '🎯 Les 3 niveaux psychologiques (CAC)',
+              title: '🎯 Étape 4 — Les Objectifs (CAC & SMART)',
               type: 'grid',
               items: [
                 {
@@ -376,166 +373,143 @@ export const SUBJECTS: Subject[] = [
                 { title: '🌍 R — Réaliste', color: 'amber', text: "Cohérent avec le marché et la situation actuelle." },
                 { title: '⏱️ T — Temporel', color: 'red', text: "Défini dans le temps, avec une date butoir claire." }
               ]
-            }
-          ]
-        }
-      },
-      {
-        id: 'cibles',
-        title: '5. Cibles',
-        description: "Si on parle à tout le monde, on ne parle à personne. On segmente toujours.",
-        content: {
-          type: 'table',
-          headers: ['Type de cible', 'Définition', 'Exemple BTS'],
-          rows: [
-            ['Cible principale', 'Le groupe global visé par la campagne.', 'DSI et DAF des PME de 50 à 500 salariés.'],
-            ['Cœur de cible', 'La fraction la plus rentable et prioritaire.', 'DSI des PME tech de 100 à 300 salariés.'],
-            ['Cible secondaire', 'Complémentaire, peut influencer les décisions.', 'Responsables RSE, Directeurs Généraux.'],
-            ['Cible relais', 'Prescripteurs qui relaient le message.', 'Influenceurs tech, journalistes IT, partenaires.'],
-            ['Cible interne', "Les salariés — premiers ambassadeurs de la marque.", 'Commerciaux, équipes terrain, managers.']
-          ],
-          extra: {
-            title: "Motivations & Freins de la cible",
-            items: [
-              { label: 'Motivations', color: 'green', list: ["Gain de temps et d'efficacité", "Image innovante et responsable", "Rapport qualité/prix avantageux", "Accompagnement et SAV de qualité"] },
-              { label: 'Freins', color: 'red', list: ["Méfiance envers le reconditionné", "Peur du risque et des pannes", "Habitudes d'achat (neuf uniquement)", "Manque de visibilité de la marque"] }
-            ]
-          }
-        }
-      },
-      {
-        id: 'moyens',
-        title: '6. Moyens',
-        badge: 'POEM',
-        badgeColor: 'amber',
-        description: "On choisit les canaux selon la cible et le budget. La classification POEM est incontournable.",
-        content: {
-          type: 'grid',
-          items: [
+            },
             {
-              title: '💰 Paid Media — Espace acheté',
-              color: 'red',
-              text: [
-                'Pub TV, Display, Google Ads, posts sponsorisés LinkedIn.',
-                'Influence rémunérée (partenariats payants).',
-                '-> On paie pour diffuser le message.'
+              id: 'cibles',
+              title: '👥 Étape 5 — Les Cibles',
+              type: 'table',
+              headers: ['Type de cible', 'Définition', 'Exemple BTS'],
+              rows: [
+                ['Cible principale', 'Le groupe global visé par la campagne.', 'DSI et DAF des PME de 50 à 500 salariés.'],
+                ['Cœur de cible', 'La fraction la plus rentable et prioritaire.', 'DSI des PME tech de 100 à 300 salariés.'],
+                ['Cible secondaire', 'Complémentaire, peut influencer les décisions.', 'Responsables RSE, Directeurs Généraux.'],
+                ['Cible relais', 'Prescripteurs qui relaient le message.', 'Influenceurs tech, journalistes IT, partenaires.'],
+                ['Cible interne', "Les salariés — premiers ambassadeurs de la marque.", 'Commerciaux, équipes terrain, managers.']
+              ],
+              extra: {
+                title: "Motivations & Freins de la cible",
+                items: [
+                  { label: 'Motivations', color: 'green', list: ["Gain de temps et d'efficacité", "Image innovante et responsable", "Rapport qualité/prix avantageux", "Accompagnement et SAV de qualité"] },
+                  { label: 'Freins', color: 'red', list: ["Méfiance envers le reconditionné", "Peur du risque et des pannes", "Habitudes d'achat (neuf uniquement)", "Manque de visibilité de la marque"] }
+                ]
+              }
+            },
+            {
+              id: 'moyens',
+              title: '🛠️ Étape 6 — Les Moyens (POEM)',
+              type: 'grid',
+              items: [
+                {
+                  title: '💰 Paid Media — Espace acheté',
+                  color: 'red',
+                  text: [
+                    'Pub TV, Display, Google Ads, posts sponsorisés LinkedIn.',
+                    'Influence rémunérée (partenariats payants).',
+                    '-> On paie pour diffuser le message.'
+                  ]
+                },
+                {
+                  title: "🏠 Owned Media — Ce qu'on possède",
+                  color: 'blue',
+                  text: [
+                    'Site web, réseaux sociaux (organique), newsletter, brochures.',
+                    'Blog, application mobile, stand salon.',
+                    '-> On contrôle totalement ces espaces.'
+                  ]
+                },
+                {
+                  title: "🌱 Earned Media — Ce qu'on gagne gratuitement",
+                  color: 'green',
+                  text: [
+                    'Articles de presse, partages, avis clients, bouche-à-oreille.',
+                    'Retombées RP, mentions spontanées sur les réseaux.',
+                    '-> Pas maîtrisable, mais très crédible.'
+                  ]
+                },
+                {
+                  title: '📺 Médias classiques',
+                  color: 'purple',
+                  text: ['Affichage, Presse, Radio, TV, Cinéma, Internet.']
+                },
+                {
+                  title: '🎯 Hors-médias',
+                  color: 'teal',
+                  text: [
+                    'Édition, Marketing direct, Événementiel, RP, Influence, Mécénat.',
+                    '-> Astuce : Justifie toujours tes choix de moyens par rapport à la cible !'
+                  ]
+                }
               ]
             },
             {
-              title: "🏠 Owned Media — Ce qu'on possède",
-              color: 'blue',
-              text: [
-                'Site web, réseaux sociaux (organique), newsletter, brochures.',
-                'Blog, application mobile, stand salon.',
-                '-> On contrôle totalement ces espaces.'
+              id: 'budget',
+              title: '💰 Étape 7 — Le Budget',
+              type: 'list',
+              items: [
+                {
+                  title: "📺 Achat d'espace (Paid Media)",
+                  text: "La part la plus importante. Réserver des espaces publicitaires : TV, display, réseaux sociaux sponsorisés, Google Ads."
+                },
+                {
+                  title: '🎨 Production créative',
+                  text: "Coûts de l'agence, du graphiste, de la vidéo, de la photographie. La création du contenu."
+                },
+                {
+                  title: '🎪 Événementiel et salons',
+                  text: 'Location de stand, scénographie, logistique, déplacements, animations.'
+                },
+                {
+                  title: '💻 Outils numériques',
+                  text: "Logiciels (Adobe, Canva Pro), plateformes d'emailing, CRM, abonnements SaaS."
+                },
+                {
+                  title: '📊 Mesure et analyse (KPI)',
+                  text: 'Outils de tracking, études de notoriété, sondages post-campagne, tableaux de bord.'
+                }
               ]
             },
             {
-              title: '🌱 Earned Media — Ce qu\'on gagne gratuitement',
-              color: 'green',
-              text: [
-                'Articles de presse, partages, avis clients, bouche-à-oreille.',
-                'Retombées RP, mentions spontanées sur les réseaux.',
-                '-> Pas maîtrisable, mais très crédible.'
+              id: 'kpi',
+              title: '📈 Étape 8 — KPIs & Bilan',
+              type: 'table',
+              headers: ['Objectif (CAC)', 'Indicateurs (KPI) à mesurer'],
+              rows: [
+                ['🧠 Cognitif', 'Impressions, Visiteurs uniques, Taux de notoriété, Référencement SEO.'],
+                ['❤️ Affectif', "Taux d'engagement, Followers, NPS (Net Promoter Score), Sentiment analysis."],
+                ['⚡ Conatif', 'Taux de conversion, Panier moyen, CPA (Coût par Acquisition), CTR, CA généré.'],
+                ['📍 Physique', 'Taux de visite tracé (QR code), Entrées en magasin, Trafic en point de vente.'],
+                ['📰 RP', "Nombre de retombées presse, Audience cumulée, EAP (Équivalent Achat Publicitaire)."]
               ]
             },
             {
-              title: '📺 Médias classiques',
-              color: 'purple',
-              text: ['Affichage, Presse, Radio, TV, Cinéma, Internet.']
-            },
-            {
-              title: '🎯 Hors-médias',
-              color: 'teal',
-              text: [
-                'Édition, Marketing direct, Événementiel, RP, Influence, Mécénat.',
-                '-> Astuce : Justifie toujours tes choix de moyens par rapport à la cible !'
+              id: 'brief',
+              title: '🎨 Le Brief Créatif',
+              type: 'list',
+              items: [
+                {
+                  title: "🎯 La Promesse",
+                  text: "L'idée centrale à faire passer. C'est l'axe de communication principal de la campagne (le bénéfice client). Ex : « Recyclea, le choix responsable et intelligent »."
+                },
+                {
+                  title: '⭐ La Preuve (Reason Why)',
+                  text: "Ce qui rend la promesse crédible et realistic auprès des cibles. Ex : L'ancienneté, les labels environnementaux (RSE), l'expertise technique, des garanties ou certifications."
+                },
+                {
+                  title: '💬 Le Ton',
+                  text: "Le registre et l'ambiance de la communication. Ex : Institutionnel, décalé, humoristique, rassurant ou moderne."
+                },
+                {
+                  title: '🛡️ Les Contraintes',
+                  text: "Toutes les limites imposées par la loi (ex: RGPD, Loi Toubon) ou par l'annonceur lui-même (ex: charte graphique, budget strict)."
+                }
               ]
-            }
-          ]
-        }
-      },
-      {
-        id: 'budget',
-        title: '7. Budget',
-        badge: 'Répartition',
-        badgeColor: 'teal',
-        description: "Le budget définit les limites de la campagne et conditionne tous les choix précédents.",
-        content: {
-          type: 'list',
-          items: [
-            {
-              title: "📺 Achat d'espace (Paid Media)",
-              text: "La part la plus importante. Réserver des espaces publicitaires : TV, display, réseaux sociaux sponsorisés, Google Ads."
-            },
-            {
-              title: '🎨 Production créative',
-              text: "Coûts de l'agence, du graphiste, de la vidéo, de la photographie. La création du contenu."
-            },
-            {
-              title: '🎪 Événementiel et salons',
-              text: 'Location de stand, scénographie, logistique, déplacements, animations.'
-            },
-            {
-              title: '💻 Outils numériques',
-              text: "Logiciels (Adobe, Canva Pro), plateformes d'emailing, CRM, abonnements SaaS."
-            },
-            {
-              title: '📊 Mesure et analyse (KPI)',
-              text: 'Outils de tracking, études de notoriété, sondages post-campagne, tableaux de bord.'
-            }
-          ]
-        }
-      },
-      {
-        id: 'kpi',
-        title: '8. KPI & Bilan',
-        badge: 'Indicateurs',
-        badgeColor: 'green',
-        description: "Les indicateurs clés de performance — on mesure ce qu'on a fixé comme objectifs.",
-        content: {
-          type: 'table',
-          headers: ['Objectif (CAC)', 'Indicateurs (KPI) à mesurer'],
-          rows: [
-            ['🧠 Cognitif', 'Impressions, Visiteurs uniques, Taux de notoriété, Référencement SEO.'],
-            ['❤️ Affectif', "Taux d'engagement, Followers, NPS (Net Promoter Score), Sentiment analysis."],
-            ['⚡ Conatif', 'Taux de conversion, Panier moyen, CPA (Coût par Acquisition), CTR, CA généré.'],
-            ['📍 Physique', 'Taux de visite tracé (QR code), Entrées en magasin, Trafic en point de vente.'],
-            ['📰 RP', "Nombre de retombées presse, Audience cumulée, EAP (Équivalent Achat Publicitaire)."]
-          ]
-        }
-      },
-      {
-        id: 'brief',
-        title: '9. Brief Créatif',
-        badge: 'Bonus',
-        badgeColor: 'purple',
-        description: "Document transmis à l'agence ou au créatif pour cadrer la campagne.",
-        content: {
-          type: 'list',
-          items: [
-            {
-              title: "🎯 La Promesse",
-              text: "L'idée centrale à faire passer. C'est l'axe de communication principal de la campagne (le bénéfice client). Ex : « Recyclea, le choix responsable et intelligent »."
-            },
-            {
-              title: '⭐ La Preuve (Reason Why)',
-              text: "Ce qui rend la promesse crédible et réaliste auprès des cibles. Ex : L'ancienneté, les labels environnementaux (RSE), l'expertise technique, des garanties ou certifications."
-            },
-            {
-              title: '💬 Le Ton',
-              text: "Le registre et l'ambiance de la communication. Ex : Institutionnel, décalé, humoristique, rassurant ou moderne."
-            },
-            {
-              title: '🛡️ Les Contraintes',
-              text: "Toutes les limites imposées par la loi (ex: RGPD, Loi Toubon) ou par l'annonceur lui-même (ex: charte graphique, budget strict)."
             }
           ]
         }
       },
       {
         id: 'legal',
-        title: '10. Cadre Légal',
+        title: 'Le Cadre Légal',
         badge: 'Lois & Règles',
         badgeColor: 'red',
         description: "Toutes les lois à connaître avec leurs obligations et exemples de justification en copie.",
@@ -572,10 +546,10 @@ export const SUBJECTS: Subject[] = [
               headers: ['Produit', 'Ce qui est interdit', 'Ce qui est autorisé'],
               rows: [
                 ['Tabac', 'Toute publicité, parrainage ou mécénat sans exception.', 'Rien. Interdiction totale.'],
-                ['Alcool', 'TV, cinéma, affichage pour les mineurs, parrainage sportif.', 'Presse adulte, radio (certaines tranches), internet (avec barrière d\'âge) + message sanitaire obligatoire.']
+                ['Alcool', 'TV, cinéma, affichage pour les mineurs, parrainage sportif.', "Presse adulte, radio (certaines tranches), internet (avec barrière d'âge) + message sanitaire obligatoire."]
               ],
               extra: {
-                title: "Exemple & Rdaction à l'examen",
+                title: "Exemple & Rédaction à l'examen",
                 items: [
                   {
                     label: "Exemple d'application",
@@ -672,9 +646,9 @@ export const SUBJECTS: Subject[] = [
               id: 'secteurs',
               title: "Autres réglementations sectorielles",
               type: 'table',
-              headers: ['Secteur d\'activité', 'Obligation légale spécifique'],
+              headers: ["Secteur d'activité", 'Obligation légale spécifique'],
               rows: [
-                ['Médicaments', 'Autorisation obligatoire de l\'ANSM requise avant toute campagne publicitaire.'],
+                ['Médicaments', "Autorisation obligatoire de l'ANSM requise avant toute campagne publicitaire."],
                 ['Alimentation', 'Mentions sanitaires obligatoires (ex : « Pour votre santé, mangez au moins cinq fruits et légumes par jour ») sous peine de taxe.'],
                 ['Crédit à la consommation', 'Affichage obligatoire et lisible du TAEG (Taux Annuel Effectif Global), de la durée et de la mention « Un crédit vous engage et doit être remboursé ».'],
                 ['Publicité comparative', 'Doit porter sur des caractéristiques essentielles, objectives, vérifiables et représentatives. Ne doit pas être trompeuse.'],
@@ -705,7 +679,7 @@ export const SUBJECTS: Subject[] = [
       },
       {
         id: 'veille',
-        title: '11. Veille & Outils',
+        title: 'Veille & Outils',
         badge: 'Outils',
         badgeColor: 'teal',
         description: "Quel outil choisir et pourquoi — comment argumenter en examen.",
@@ -829,25 +803,25 @@ export const SUBJECTS: Subject[] = [
                   title: "Feedly & Google Alerts",
                   color: 'purple',
                   text: [
-                    "Feedly : Agrégateur de flux RSS pour suivre et centraliser toute la presse professionnelle en un seul écran.",
-                    "Google Alerts : Outil gratuit pour recevoir des notifications dès qu'un mot-clé ou le nom de votre marque est mentionné sur le web."
+                    "Feedly : Outil de centralisation de flux RSS pour s'informer en continu sur son secteur.",
+                    "Google Alerts : Outil gratuit pour surveiller l'apparition de mots-clés ou du nom de la marque sur le web."
                   ]
                 },
                 {
                   title: "Mention & Talkwalker",
                   color: 'red',
                   text: [
-                    "Mention : Surveille en temps réel l'e-réputation de la marque sur le web, les blogs, les forums et les réseaux sociaux."
+                    "Surveillent en temps réel l'e-réputation de la marque sur tous les supports du web et les réseaux sociaux."
                   ]
                 }
               ]
             },
             {
               id: 'choix-examen',
-              title: "🎓 Synthèse : Quel outil choisir à l'examen ?",
+              title: "🎓 Comment choisir un outil à l'examen ?",
               type: 'list',
               items: [
-                { title: "Trafic et comportement web", text: "Google Analytics (grand public) ou Matomo (sensible / RGPD)." },
+                { title: "Trafic et comportement web", text: "Google Analytics (classique) ou Matomo (RGPD / Public)." },
                 { title: "Audience Télévision ou Radio", text: "Médiamétrie (PDA, audimat)." },
                 { title: "Surveillance de la concurrence", text: "Kantar Media (pression publicitaire)." },
                 { title: "Newsletter et Emailing marketing", text: "Mailchimp (classique) ou Brevo (B2B, RGPD)." },
@@ -860,7 +834,7 @@ export const SUBJECTS: Subject[] = [
       },
       {
         id: 'acteurs',
-        title: '12. Acteurs de la Com',
+        title: 'Les Acteurs',
         badge: 'Acteurs',
         badgeColor: 'purple',
         description: "Qui mobiliser selon la campagne et comment justifier tes choix.",
@@ -948,11 +922,11 @@ export const SUBJECTS: Subject[] = [
               type: 'table',
               headers: ['Type de campagne', 'Acteurs clés à mobiliser'],
               rows: [
-                ['Lancement grand public', 'Agence 360° (stratégie multi-canal), Binôme créatif (DA + Rédacteur), Régie publicitaire (achat d\'espace TV/affichage), RP & Journalistes (relations presse), Influenceurs.'],
-                ['Campagne B2B (ex: Recyclea)', 'Agence digitale (SEO/SEA/site web), Community Manager (animation LinkedIn), Agence RP spécialisée, Chargé d\'études.'],
-                ['Événement / Salon', 'Agence événementielle (scénographie, logistique), Chef de projet (coordination), Imprimeur (supports print).'],
-                ['Campagne emailing', 'Community Manager, Agence digitale (conception du template), Responsable RGPD.'],
-                ['Relations presse', 'Attaché de presse, Journalistes ciblés, Rédacteur (communiqué de presse).']
+                ['Lancement grand public', "Agence 360° (stratégie multi-canal), Binôme créatif (DA + Rédacteur), Régie publicitaire (achat d'espace TV/affichage), RP & Journalistes (relations presse), Influenceurs."],
+                ['Campagne B2B (ex: Recyclea)', "Agence digitale (SEO/SEA/site web), Community Manager (animation LinkedIn), Agence RP spécialisée, Chargé d'études."],
+                ['Événement / Salon', "Agence événementielle (scénographie, logistique), Chef de projet (coordination), Imprimeur (supports print)."],
+                ['Campagne emailing', "Community Manager, Agence digitale (conception du template), Responsable RGPD."],
+                ['Relations presse', "Attaché de presse, Journalistes ciblés, Rédacteur (communiqué de presse)."]
               ],
               extra: {
                 title: "Méthode pour l'examen",
@@ -975,24 +949,6 @@ export const SUBJECTS: Subject[] = [
                 ]
               }
             }
-          ]
-        }
-      },
-      {
-        id: 'recap',
-        title: '🗝️ Mémo D·P·P·O·C·M·B·K',
-        content: {
-          type: 'table',
-          headers: ['Lettre', 'Étape', 'Question clé', 'Piège à éviter'],
-          rows: [
-            ['D', 'Diagnostic (SWOT)', 'Où en est-on ?', "Oublier l'analyse externe (PESTEL)."],
-            ['P', 'Problème de com', 'Quel défi à résoudre ?', 'Oublier le « alors que » (le frein).'],
-            ['P', 'Positionnement', 'Quelle image voulue ?', 'Oublier un des 4 critères CDAD.'],
-            ['O', 'Objectifs (SMART)', 'Quoi obtenir ?', 'Oublier un des 3 niveaux CAC.'],
-            ['C', 'Cibles', 'À qui parler ?', 'Oublier les cibles relais et interne.'],
-            ['M', 'Moyens (POEM)', 'Quels canaux ?', 'Lister sans justifier par rapport à la cible.'],
-            ['B', 'Budget', 'Combien ça coûte ?', 'Ne pas ventiler (répartir) le budget.'],
-            ['K', 'KPI & Bilan', 'Comment mesurer ?', 'KPI déconnectés des objectifs fixés.']
           ]
         }
       }

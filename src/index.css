@@ -5,22 +5,32 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Inter", sans-serif;
   
-  --color-bg-page: #050505;
-  --color-bg-card: #141414;
-  --color-accent: #E6FF00;
-  --color-border-theme: #262626;
-  --color-muted: #888888;
+  --color-bg-page: #09090b;
+  --color-bg-card: #18181b;
+  --color-accent: #fbbf24;
+  --color-border-theme: #27272a;
+  --color-text-main: #f4f4f5;
+  --color-text-muted: #a1a1aa;
+}
+
+.light {
+  --color-bg-page: #f4f4f5;
+  --color-bg-card: #ffffff;
+  --color-accent: #d97706;
+  --color-border-theme: #e4e4e7;
+  --color-text-main: #09090b;
+  --color-text-muted: #71717a;
 }
 
 @layer base {
   body {
-    @apply bg-bg-page text-white font-sans antialiased;
+    @apply bg-bg-page text-text-main font-sans antialiased transition-colors duration-300;
     -webkit-tap-highlight-color: transparent;
     overflow-x: hidden;
   }
   
   h1, h2, h3, h4 {
-    @apply font-display font-black tracking-tighter uppercase;
+    @apply font-display font-black tracking-tighter uppercase text-text-main;
   }
 }
 
@@ -49,7 +59,10 @@
   @apply bg-bg-page;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-border-theme hover:bg-muted;
+  @apply bg-border-theme;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-text-muted;
 }
 
 /* Smooth pulse animation */

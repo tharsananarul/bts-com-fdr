@@ -1,97 +1,140 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Mail, Linkedin, ArrowRight } from 'lucide-react';
+import { Mail, Linkedin, ArrowRight, BookOpen, Palette, Scale } from 'lucide-react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import { SUBJECTS } from '../data/content';
 
 interface HomeProps {
   onNavigate: (subjectId: string) => void;
 }
 
 export default function Home({ onNavigate }: HomeProps) {
-  // Boutons principaux
-  const buttons = [
-    { label: "Stratégie de com", id: "bloc1", icon: "📐", color: "bg-accent", textColor: "text-black" },
-    { label: "Cultures de la Com", id: "culture", icon: "🎨", color: "bg-purple-500", textColor: "text-white" },
-    { label: "CEJM", id: "cejm", icon: "⚖️", color: "bg-blue-500", textColor: "text-white" }
+  // Boutons principaux avec icônes Lucide et descriptions associées
+  const subjectsList = [
+    { 
+      label: "Stratégie de com", 
+      id: "bloc1", 
+      icon: <BookOpen className="w-8 h-8" />, 
+      color: "bg-blue-500/10 text-blue-500 border-blue-500/20", 
+      description: "Le plan de communication complet en 8 étapes (D.P.P.O.C.M.B.K), le cadre légal et les outils de veille."
+    },
+    { 
+      label: "Cultures de la Com", 
+      id: "culture", 
+      icon: <Palette className="w-8 h-8" />, 
+      color: "bg-purple-500/10 text-purple-500 border-purple-500/20", 
+      description: "Analyse culturelle et sémiologique des grands thèmes transversaux du BTS (La Rue, Le Repas, L'Excès)."
+    },
+    { 
+      label: "CEJM", 
+      id: "cejm", 
+      icon: <Scale className="w-8 h-8" />, 
+      color: "bg-amber-500/10 text-amber-500 border-amber-500/20", 
+      description: "Culture Économique, Juridique et Managériale pour la 1ère et 2ème année, avec méthodologie du syllogisme."
+    }
   ];
 
   return (
-    <div className="flex-1 bg-[#050505] text-white font-sans flex flex-col pb-10 px-4">
-      
-      {/* Container Principal: centré et format mobile */}
-      <div className="w-full max-w-md mx-auto flex flex-col flex-1">
-
-        {/* Espace Animation Lottie */}
+    <div className="flex-1 text-text-main flex flex-col pb-10 px-4 md:px-6">
+      <div className="w-full max-w-6xl mx-auto flex flex-col gap-8 md:gap-12 flex-1">
+        
+        {/* Section Hero Banner */}
         <motion.div 
-          initial={{ opacity: 0, y: -10 }}
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full mt-2 mb-2 flex items-center justify-center"
+          className="w-full bg-bg-card border border-border-theme rounded-3xl p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative shadow-lg"
         >
-          <DotLottieReact
-            src="https://lottie.host/d4eadce2-a738-4f03-86d7-6c655288b5aa/bt50OB3IhZ.lottie"
-            loop
-            autoplay
-            className="w-[300px] h-[300px] md:w-[350px] md:h-[350px] mx-auto"
-          />
+          {/* Background decorative gradient */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left z-10">
+            <span className="text-[10px] uppercase font-black text-accent tracking-[3px] bg-accent/10 px-3 py-1.5 rounded-full mb-4">
+              Plateforme de Révision
+            </span>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none mb-4 uppercase">
+              Révisez votre <br className="hidden md:inline" />
+              <span className="text-accent">BTS Communication</span>
+            </h1>
+            <p className="text-xs md:text-base text-text-muted font-medium max-w-md leading-relaxed">
+              Toutes les fiches de cours, méthodologies et cas pratiques officiels réunis sur une seule plateforme intuitive et interactive.
+            </p>
+          </div>
+
+          <div className="w-[200px] h-[200px] md:w-[260px] md:h-[260px] flex-shrink-0 flex items-center justify-center">
+            <DotLottieReact
+              src="https://lottie.host/d4eadce2-a738-4f03-86d7-6c655288b5aa/bt50OB3IhZ.lottie"
+              loop
+              autoplay
+              className="w-full h-full"
+            />
+          </div>
         </motion.div>
 
-        {/* Textes d'accueil */}
-        <motion.div 
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-center -mt-8 mb-8 relative z-10"
-        >
-          <h1 className="text-4xl font-black tracking-tighter mb-4 text-white">
-            Bienvenue !
-          </h1>
-          <p className="text-base text-[#888888] font-medium px-4">
-            Tu veux réviser quoi aujourd'hui ?
-          </p>
-        </motion.div>
-
-        {/* Boutons d'Action */}
-        <div className="space-y-4 flex-1">
-          {buttons.map((btn, index) => (
-            <motion.button
-              key={btn.id}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 + (index * 0.1) }}
-              onClick={() => onNavigate(btn.id)}
-              className="w-full p-4 md:p-5 bg-[#141414] border border-[#262626] hover:border-white transition-all duration-300 rounded-[2rem] flex items-center justify-between group cursor-pointer shadow-md"
-            >
-              <div className="flex items-center gap-4">
-                <div className={`w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-inner ${btn.color} ${btn.textColor}`}>
-                  {btn.icon}
+        {/* Section Matières */}
+        <div className="flex flex-col gap-4">
+          <h2 className="text-lg md:text-2xl font-black tracking-tight uppercase flex items-center gap-3">
+            <div className="w-1.5 h-6 bg-accent rounded-full" />
+            Matières disponibles
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {subjectsList.map((btn, index) => (
+              <motion.button
+                key={btn.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.1 + (index * 0.1) }}
+                onClick={() => onNavigate(btn.id)}
+                className="group text-left p-6 md:p-8 bg-bg-card border border-border-theme hover:border-accent/40 hover:shadow-accent/5 rounded-3xl flex flex-col justify-between items-start transition-all duration-300 cursor-pointer shadow-md min-h-[220px]"
+              >
+                <div className="w-full">
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 border shadow-inner transition-transform group-hover:scale-105 duration-300 ${btn.color}`}>
+                    {btn.icon}
+                  </div>
+                  <h3 className="text-xl font-bold tracking-tight mb-3 text-text-main group-hover:text-accent transition-colors">
+                    {btn.label}
+                  </h3>
+                  <p className="text-xs text-text-muted font-medium leading-relaxed">
+                    {btn.description}
+                  </p>
                 </div>
-                <span className="text-lg font-bold text-left tracking-tight">{btn.label}</span>
-              </div>
-              <div className="w-10 h-10 rounded-full border border-[#262626] bg-[#050505] flex items-center justify-center group-hover:bg-white group-hover:block transition-colors mr-1">
-                <ArrowRight size={18} className="text-[#888888] group-hover:text-black" />
-              </div>
-            </motion.button>
-          ))}
+                
+                <div className="w-full flex justify-end mt-6">
+                  <div className="w-9 h-9 rounded-xl border border-border-theme bg-bg-page flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all duration-300">
+                    <ArrowRight size={16} className="text-text-muted group-hover:text-black transition-colors" />
+                  </div>
+                </div>
+              </motion.button>
+            ))}
+          </div>
         </div>
 
-        {/* Footer Contact */}
+        {/* Footer / Section Contact */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-12 text-center bg-[#141414] p-6 text-sm rounded-[2rem] border border-[#262626] shadow-md"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="bg-bg-card p-6 md:p-8 rounded-3xl border border-border-theme shadow-md flex flex-col md:flex-row items-center justify-between gap-6"
         >
-          <p className="text-[#888888] font-bold mb-5 tracking-tight">
-            T'as des questions ? Pose-les moi ici :
-          </p>
-          <div className="flex flex-col gap-3">
-            <a href="mailto:Tharsananarul@gmail.com" className="flex items-center justify-center gap-3 text-white font-bold hover:text-[#E6FF00] transition-colors bg-[#050505] p-4 rounded-2xl border border-[#262626]">
-              <Mail size={18} /> Tharsananarul@gmail.com
+          <div className="flex-1 text-center md:text-left">
+            <h3 className="text-base md:text-lg font-black uppercase mb-2 tracking-tight">Une question ou suggestion ?</h3>
+            <p className="text-xs text-text-muted font-medium">N'hésitez pas à me contacter via l'un de mes réseaux professionnels ci-dessous.</p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+            <a 
+              href="mailto:Tharsananarul@gmail.com" 
+              className="flex items-center justify-center gap-3 text-xs text-text-main font-bold hover:text-black hover:bg-accent hover:border-accent transition-all duration-300 bg-bg-page px-5 py-3.5 rounded-2xl border border-border-theme"
+            >
+              <Mail size={16} /> Tharsananarul@gmail.com
             </a>
-            <a href="https://www.linkedin.com/in/tharsanan-arulananthaselvam/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 text-white font-bold hover:text-[#E6FF00] transition-colors bg-[#050505] p-4 rounded-2xl border border-[#262626]">
-              <Linkedin size={18} /> Mon Profil LinkedIn
+            <a 
+              href="https://www.linkedin.com/in/tharsanan-arulananthaselvam/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center justify-center gap-3 text-xs text-text-main font-bold hover:text-black hover:bg-accent hover:border-accent transition-all duration-300 bg-bg-page px-5 py-3.5 rounded-2xl border border-border-theme"
+            >
+              <Linkedin size={16} /> Profil LinkedIn
             </a>
           </div>
         </motion.div>
