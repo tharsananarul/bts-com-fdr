@@ -656,11 +656,11 @@ export default function App() {
         {/* Header Sidebar */}
         <div className="h-20 border-b border-border-theme px-6 flex items-center justify-between">
           <div onClick={handleGoHome} className="flex items-center gap-3 cursor-pointer group">
-            <div className="w-10 h-10 bg-black border border-zinc-800 flex items-center justify-center overflow-hidden rounded-xl shadow-sm">
+            <div className="h-10 flex items-center justify-center">
               <img
                 src={`${import.meta.env.BASE_URL}images/Logo%20T%20Orange.png`}
                 alt="Logo T"
-                className="w-full h-full object-contain p-1"
+                className="h-full w-auto object-contain"
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = 'none';
                   const sibling = (e.target as HTMLElement).nextElementSibling;
@@ -792,11 +792,11 @@ export default function App() {
 
         {/* Logo */}
         <div onClick={handleGoHome} className="flex items-center gap-2 cursor-pointer">
-          <div className="w-8 h-8 bg-black border border-zinc-800 flex items-center justify-center overflow-hidden rounded-lg shadow-xs">
+          <div className="h-8 flex items-center justify-center">
             <img
               src={`${import.meta.env.BASE_URL}images/Logo%20T%20Orange.png`}
               alt="Logo T"
-              className="w-full h-full object-contain p-1"
+              className="h-full w-auto object-contain"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = 'none';
                 const sibling = (e.target as HTMLElement).nextElementSibling;
