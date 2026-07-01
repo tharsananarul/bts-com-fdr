@@ -224,7 +224,7 @@ export const SUBJECTS: Subject[] = [
     title: 'Stratégie de communication',
     icon: '📐',
     tag: 'Bloc 01',
-    description: "Les 8 étapes du plan de com — D·P·P·O·C·M·B·K",
+    description: "Fiches de révision pour le Bloc 01.",
     sections: [
       {
         id: 'plan',
