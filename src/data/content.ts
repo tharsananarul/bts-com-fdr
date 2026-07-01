@@ -224,90 +224,181 @@ export const SUBJECTS: Subject[] = [
     title: 'Stratégie de communication',
     icon: '📐',
     tag: 'Bloc 01',
-    description: "Les 8 étapes clés du plan de com, de l'analyse au pilotage.",
+    description: "Les 8 étapes du plan de com — D·P·P·O·C·M·B·K",
     sections: [
       {
         id: 'diagnostic',
         title: '1. Diagnostic',
-        badge: 'SWOT / FFOM',
+        badge: 'SWOT & PESTEL',
         badgeColor: 'blue',
-        description: "Analyse Interne (Forces/Faiblesses) et Externe (Opportunités/Menaces).",
+        description: "On photographie la situation avant d'agir. SWOT + PESTEL.",
         content: {
-          type: 'swot',
-          items: [
-            { title: 'Forces (interne)', color: 'green', items: ['Atouts, savoir-faire distinctifs', 'Notoriété, label, budget fort', 'Image de marque positive'], example: 'Ex. Reels très vus, comm. organique performante' },
-            { title: 'Faiblesses (interne)', color: 'red', items: ['Points faibles internes', 'Site obsolète, budget nul', 'Image vieillissante'], example: 'Ex. Ventes en ligne = 5%, pas de stratégie omnicanale' },
-            { title: 'Opportunités (externe)', color: 'blue', items: ['Tendances favorables du marché', 'Croissance du e-commerce', 'Nouveaux besoins des cibles'], example: 'Ex. Essor de Pinterest/Instagram' },
-            { title: 'Menaces (externe)', color: 'amber', items: ['Concurrents agressifs', 'Crise économique, inflation', 'Saturation médiatique'], example: 'Ex. Concurrence internationale à bas coût' }
-          ],
-          warning: "Ne faire que Forces/Faiblesses = diagnostic interne seulement = max 6 pts sur 10. Le SWOT complet est obligatoire."
+          type: 'subsections',
+          subsections: [
+            {
+              id: 'swot',
+              title: '📊 La Matrice SWOT',
+              type: 'grid',
+              items: [
+                {
+                  title: '💪 Forces (interne)',
+                  color: 'green',
+                  text: [
+                    "Atouts, savoir-faire distinctifs, notoriété.",
+                    "Image de marque positive, budget fort.",
+                    "-> Ce que l'organisation maîtrise et qui lui donne un avantage."
+                  ]
+                },
+                {
+                  title: '⚠️ Faiblesses (interne)',
+                  color: 'red',
+                  text: [
+                    "Points faibles internes : site obsolète, budget nul.",
+                    "Image vieillissante, manque de compétences.",
+                    "-> Ce qui freine l'organisation de l'intérieur."
+                  ]
+                },
+                {
+                  title: '🌟 Opportunités (externe)',
+                  color: 'blue',
+                  text: [
+                    "Tendances favorables du marché, croissance du e-commerce.",
+                    "Nouveaux besoins des cibles, lois favorables.",
+                    "-> Ex : L'essor de Pinterest/Instagram pour une marque mode."
+                  ]
+                },
+                {
+                  title: '🚨 Menaces (externe)',
+                  color: 'amber',
+                  text: [
+                    "Concurrents agressifs, crise économique, inflation.",
+                    "Saturation médiatique, nouvelles réglementations.",
+                    "-> Ex : Concurrence internationale à bas coût."
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'pestel',
+              title: "🌍 L'Analyse PESTEL (Macro-environnement)",
+              type: 'grid',
+              items: [
+                { title: '🏛️ P — Politique', color: 'purple', text: ["Stabilité de l'État, aides gouvernementales, politique fiscale."] },
+                { title: '📈 E — Économique', color: 'blue', text: ["Inflation, pouvoir d'achat, taux d'intérêt, croissance (PIB)."] },
+                { title: '👥 S — Socioculturel', color: 'teal', text: ["Modes de vie, valeurs culturelles, tendances de consommation, démographie."] },
+                { title: '📱 T — Technologique', color: 'green', text: ["Innovations, IA, réseaux sociaux, brevets, dépenses en R&D."] },
+                { title: '🌱 E — Environnemental', color: 'green', text: ["Écologie, météo, normes environnementales, recyclage."] },
+                { title: '⚖️ L — Légal', color: 'red', text: ["Lois, RGPD, droit du travail, normes de sécurité, Loi AGEC.", "-> Ex : Loi interdisant les emballages plastiques = menace pour une marque d'eau, opportunité pour une marque de gourdes."] }
+              ]
+            }
+          ]
         }
       },
       {
         id: 'probleme',
-        title: '2. Problème',
-        description: "Le défi que la campagne doit résoudre. Tension entre ambition et obstacle.",
+        title: '2. Problème de com',
+        description: "Le défi central de la campagne. Toujours sous la forme : « Comment... alors que... ? »",
         content: {
           type: 'formula',
           formula: "« Comment [objectif / ambition] alors que [obstacle / frein / préjugé] ? »",
           examples: [
-            { label: 'Exemple 1 — Formation artisanale', text: "« Comment informer et inciter des jeunes à intégrer un centre de formation artisanal, alors que l'artisanat est perçu comme peu attractif et peu lucratif ? »" },
-            { label: 'Exemple 2 — Culture / Spectacle', text: "« Comment attirer les jeunes vers l'opéra, alors que cette musique est perçue comme élitiste et chère ? »" },
-            { label: 'Exemple 3 — Marque locale', text: "« Comment développer les ventes en ligne d'une marque artisanale locale, alors que sa cible privilégie encore l'achat en magasin ? »" }
+            { label: 'Exemple — Reconditionnement B2B', text: "« Comment faire de Recyclea LA référence du reconditionnement B2B alors que les entreprises ont une image vieillotte et méfiante du reconditionné ? »" },
+            { label: 'Exemple — Formation artisanale', text: "« Comment informer et inciter des jeunes à intégrer un centre de formation artisanal, alors que l'artisanat est perçu comme peu attractif et peu lucratif ? »" },
+            { label: 'Exemple — Culture / Spectacle', text: "« Comment attirer les jeunes vers l'opéra, alors que cette musique est perçue comme élitiste et chère ? »" }
           ],
-          tip: "Le 'comment' = ton objectif. Le 'alors que' = le frein principal tiré du SWOT."
+          tip: "Le 'comment' = ton objectif de communication. Le 'alors que' = le frein principal tiré directement de ton SWOT (souvent une faiblesse ou une menace)."
         }
       },
       {
         id: 'positionnement',
         title: '3. Positionnement',
-        badge: '4 critères',
+        badge: 'CDAD',
         badgeColor: 'blue',
-        description: "La place que la marque veut occuper dans l'esprit du public.",
+        description: "La place que la marque veut occuper dans l'esprit de la cible.",
         content: {
           type: 'grid',
           items: [
-            { title: 'Crédible', color: 'blue', text: 'La promesse est réaliste et prouvée (Labels, prix, ancienneté).' },
-            { title: 'Distinctif', color: 'green', text: "L'offre se démarque clairement des concurrents (Avantage unique)." },
-            { title: 'Attractif', color: 'amber', text: 'Répond à un vrai besoin ou attente forte de la cible.' },
-            { title: 'Durable', color: 'red', text: 'Peut être maintenu et défendu sur le long terme.' }
+            { title: '✅ Crédible', color: 'blue', text: "La promesse est réaliste et justifiée par des preuves réelles (Labels, prix, ancienneté, certifications)." },
+            { title: '🎯 Distinctif', color: 'green', text: "L'offre se démarque clairement des concurrents. Avantage unique, différent de la concurrence." },
+            { title: '💡 Attractif', color: 'amber', text: "Répond à un besoin réel ou une attente forte de la cible. Donne envie." },
+            { title: '⏳ Durable', color: 'red', text: "Peut être maintenu et défendu sur le long terme. Pas un simple effet de mode." }
           ],
-          formula: "« [La marque] se positionne comme [image souhaitée] pour [cible], grâce à [preuve / différenciation]. »"
+          formula: "« [La marque] se positionne comme [image souhaitée] pour [cible précise], grâce à [preuve / différenciation]. »"
         }
       },
       {
         id: 'objectifs',
         title: '4. Objectifs',
-        badge: 'Triptyque CAC',
+        badge: 'CAC + SMART',
         badgeColor: 'purple',
         content: {
-          type: 'grid',
-          items: [
-            { title: '🧠 Cognitif', color: 'blue', text: 'FAIRE CONNAÎTRE : Informer, annoncer, développer la notoriété.' },
-            { title: '❤️ Affectif', color: 'green', text: 'FAIRE AIMER : Améliorer l\'image, moderniser, créer la préférence.' },
-            { title: '⚡ Conatif', color: 'amber', text: 'FAIRE AGIR : Pousser à l\'achat, générer des inscriptions ou du trafic.' }
-          ],
-          example: "Cognitif : Faire connaître le centre. Affectif : Valoriser l'image. Conatif : Inciter à l'inscription."
+          type: 'subsections',
+          subsections: [
+            {
+              id: 'cac',
+              title: '🎯 Les 3 niveaux psychologiques (CAC)',
+              type: 'grid',
+              items: [
+                {
+                  title: '🧠 Cognitif — Faire SAVOIR',
+                  color: 'blue',
+                  text: [
+                    "Informer, faire connaître, développer la notoriété.",
+                    "-> Ex : « Augmenter la notoriété de la marque de 15% »"
+                  ]
+                },
+                {
+                  title: '❤️ Affectif — Faire AIMER',
+                  color: 'green',
+                  text: [
+                    "Modifier l'image, créer de la sympathie, moderniser.",
+                    "-> Ex : « Rajeunir l'image de marque »"
+                  ]
+                },
+                {
+                  title: '⚡ Conatif — Faire AGIR',
+                  color: 'amber',
+                  text: [
+                    "Pousser à l'achat, à l'inscription, à l'action.",
+                    "-> Ex : « Générer 200 leads qualifiés »"
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'smart',
+              title: '📏 Les critères SMART',
+              type: 'grid',
+              items: [
+                { title: '🔎 S — Spécifique', color: 'blue', text: "Précis, pas vague. On sait exactement ce qu'on veut atteindre." },
+                { title: '📊 M — Mesurable', color: 'green', text: "On peut le quantifier et le vérifier avec des chiffres." },
+                { title: '✅ A — Atteignable', color: 'teal', text: "Réaliste avec les ressources et le budget disponibles." },
+                { title: '🌍 R — Réaliste', color: 'amber', text: "Cohérent avec le marché et la situation actuelle." },
+                { title: '⏱️ T — Temporel', color: 'red', text: "Défini dans le temps, avec une date butoir claire." }
+              ]
+            }
+          ]
         }
       },
       {
         id: 'cibles',
         title: '5. Cibles',
+        description: "Si on parle à tout le monde, on ne parle à personne. On segmente toujours.",
         content: {
           type: 'table',
-          headers: ['Type', 'Définition', 'Exemple'],
+          headers: ['Type de cible', 'Définition', 'Exemple BTS'],
           rows: [
-            ['Cible principale', 'Public global visé.', 'Jeunes 16-25 ans national.'],
-            ['Cœur de cible', 'Fraction prioritaire.', 'Jeunes 16-25 ans régionaux.'],
-            ['Cible secondaire', 'Public influent.', 'Parents, enseignants.'],
-            ['Relais', 'Prescripteurs.', 'Journalistes, influenceurs.'],
-            ['Interne', 'Collaborateurs.', 'Équipes, formateurs.']
+            ['Cible principale', 'Le groupe global visé par la campagne.', 'DSI et DAF des PME de 50 à 500 salariés.'],
+            ['Cœur de cible', 'La fraction la plus rentable et prioritaire.', 'DSI des PME tech de 100 à 300 salariés.'],
+            ['Cible secondaire', 'Complémentaire, peut influencer les décisions.', 'Responsables RSE, Directeurs Généraux.'],
+            ['Cible relais', 'Prescripteurs qui relaient le message.', 'Influenceurs tech, journalistes IT, partenaires.'],
+            ['Cible interne', "Les salariés — premiers ambassadeurs de la marque.", 'Commerciaux, équipes terrain, managers.']
           ],
           extra: {
-            title: "Motivations & Freins",
+            title: "Motivations & Freins de la cible",
             items: [
-              { label: 'Motivations', color: 'green', list: ['Sens dans la carrière', 'Attrait local', 'Formation pratique'] },
-              { label: 'Freins', color: 'red', list: ['Image dépassée', 'Méconnaissance débouchés', 'Peur revenus'] }
+              { label: 'Motivations', color: 'green', list: ["Gain de temps et d'efficacité", "Image innovante et responsable", "Rapport qualité/prix avantageux", "Accompagnement et SAV de qualité"] },
+              { label: 'Freins', color: 'red', list: ["Méfiance envers le reconditionné", "Peur du risque et des pannes", "Habitudes d'achat (neuf uniquement)", "Manque de visibilité de la marque"] }
             ]
           }
         }
@@ -315,64 +406,593 @@ export const SUBJECTS: Subject[] = [
       {
         id: 'moyens',
         title: '6. Moyens',
-        badge: 'POE',
+        badge: 'POEM',
         badgeColor: 'amber',
+        description: "On choisit les canaux selon la cible et le budget. La classification POEM est incontournable.",
         content: {
           type: 'grid',
           items: [
-            { title: '📺 Médias', color: 'blue', text: 'Affichage, Presse, Radio, TV, Internet, Réseaux Sociaux.' },
-            { title: '🎯 Hors-médias', color: 'green', text: 'Édition, Marketing direct, Événementiel, RP, Influence.' },
-            { title: '💰 Paid', color: 'red', text: 'Ads, Influence rémunérée, Achat d\'espace.' },
-            { title: '🏠 Owned', color: 'blue', text: 'Site, Blog, Réseaux (organique), Newsletter.' },
-            { title: '🌱 Earned', color: 'green', text: 'Retombées presse, Bouche à oreille, Partages.' }
+            {
+              title: '💰 Paid Media — Espace acheté',
+              color: 'red',
+              text: [
+                'Pub TV, Display, Google Ads, posts sponsorisés LinkedIn.',
+                'Influence rémunérée (partenariats payants).',
+                '-> On paie pour diffuser le message.'
+              ]
+            },
+            {
+              title: "🏠 Owned Media — Ce qu'on possède",
+              color: 'blue',
+              text: [
+                'Site web, réseaux sociaux (organique), newsletter, brochures.',
+                'Blog, application mobile, stand salon.',
+                '-> On contrôle totalement ces espaces.'
+              ]
+            },
+            {
+              title: '🌱 Earned Media — Ce qu\'on gagne gratuitement',
+              color: 'green',
+              text: [
+                'Articles de presse, partages, avis clients, bouche-à-oreille.',
+                'Retombées RP, mentions spontanées sur les réseaux.',
+                '-> Pas maîtrisable, mais très crédible.'
+              ]
+            },
+            {
+              title: '📺 Médias classiques',
+              color: 'purple',
+              text: ['Affichage, Presse, Radio, TV, Cinéma, Internet.']
+            },
+            {
+              title: '🎯 Hors-médias',
+              color: 'teal',
+              text: [
+                'Édition, Marketing direct, Événementiel, RP, Influence, Mécénat.',
+                '-> Astuce : Justifie toujours tes choix de moyens par rapport à la cible !'
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'budget',
+        title: '7. Budget',
+        badge: 'Répartition',
+        badgeColor: 'teal',
+        description: "Le budget définit les limites de la campagne et conditionne tous les choix précédents.",
+        content: {
+          type: 'list',
+          items: [
+            {
+              title: "📺 Achat d'espace (Paid Media)",
+              text: "La part la plus importante. Réserver des espaces publicitaires : TV, display, réseaux sociaux sponsorisés, Google Ads."
+            },
+            {
+              title: '🎨 Production créative',
+              text: "Coûts de l'agence, du graphiste, de la vidéo, de la photographie. La création du contenu."
+            },
+            {
+              title: '🎪 Événementiel et salons',
+              text: 'Location de stand, scénographie, logistique, déplacements, animations.'
+            },
+            {
+              title: '💻 Outils numériques',
+              text: "Logiciels (Adobe, Canva Pro), plateformes d'emailing, CRM, abonnements SaaS."
+            },
+            {
+              title: '📊 Mesure et analyse (KPI)',
+              text: 'Outils de tracking, études de notoriété, sondages post-campagne, tableaux de bord.'
+            }
           ]
         }
       },
       {
         id: 'kpi',
-        title: '7. KPI',
+        title: '8. KPI & Bilan',
+        badge: 'Indicateurs',
+        badgeColor: 'green',
+        description: "Les indicateurs clés de performance — on mesure ce qu'on a fixé comme objectifs.",
         content: {
           type: 'table',
-          headers: ['Objectif', 'Indicateurs (KPI)'],
+          headers: ['Objectif (CAC)', 'Indicateurs (KPI) à mesurer'],
           rows: [
-            ['Cognitif', 'Impressions, Visiteurs uniques, SEO, Notoriété.'],
-            ['Affectif', 'Taux engagement, Followers, NPS, Sentiment.'],
-            ['Conatif', 'Taux conversion, Panier moyen, CPA, CTR, CA.'],
-            ['Physique', 'Taux de visite tracé (QR code), Entrées.'],
-            ['RP', 'Nombre retombées, Audience cumulée, EAP.']
+            ['🧠 Cognitif', 'Impressions, Visiteurs uniques, Taux de notoriété, Référencement SEO.'],
+            ['❤️ Affectif', "Taux d'engagement, Followers, NPS (Net Promoter Score), Sentiment analysis."],
+            ['⚡ Conatif', 'Taux de conversion, Panier moyen, CPA (Coût par Acquisition), CTR, CA généré.'],
+            ['📍 Physique', 'Taux de visite tracé (QR code), Entrées en magasin, Trafic en point de vente.'],
+            ['📰 RP', "Nombre de retombées presse, Audience cumulée, EAP (Équivalent Achat Publicitaire)."]
           ]
         }
       },
       {
-        id: 'droit',
-        title: '8. Droit',
+        id: 'brief',
+        title: '9. Brief Créatif',
+        badge: 'Bonus',
+        badgeColor: 'purple',
+        description: "Document transmis à l'agence ou au créatif pour cadrer la campagne.",
         content: {
           type: 'list',
           items: [
-            { title: 'RGPD (2018)', text: 'Consentement explicite, droit à l\'oubli, politique de confidentialité.' },
-            { title: 'Loi Évin (1991)', text: 'Encadrement alcool (message sanitaire) et tabac (interdiction).' },
-            { title: 'Loi Sapin (1993)', text: 'Transparence des achats d\'espaces publicitaires.' },
-            { title: 'LCEN (2004)', text: 'Opt-in e-mailing, mentions légales, cookies.' },
-            { title: 'Droit d\'auteur', text: 'Cession de droits obligatoire pour toute création originale.' },
-            { title: 'Droit à l\'image', text: 'Autorisation écrite obligatoire pour toute personne identifiable.' },
-            { title: 'Loi AGEC (2020)', text: 'Anti-gaspillage, éco-conception des supports.' }
+            {
+              title: "🎯 La Promesse",
+              text: "L'idée centrale à faire passer. C'est l'axe de communication principal de la campagne (le bénéfice client). Ex : « Recyclea, le choix responsable et intelligent »."
+            },
+            {
+              title: '⭐ La Preuve (Reason Why)',
+              text: "Ce qui rend la promesse crédible et réaliste auprès des cibles. Ex : L'ancienneté, les labels environnementaux (RSE), l'expertise technique, des garanties ou certifications."
+            },
+            {
+              title: '💬 Le Ton',
+              text: "Le registre et l'ambiance de la communication. Ex : Institutionnel, décalé, humoristique, rassurant ou moderne."
+            },
+            {
+              title: '🛡️ Les Contraintes',
+              text: "Toutes les limites imposées par la loi (ex: RGPD, Loi Toubon) ou par l'annonceur lui-même (ex: charte graphique, budget strict)."
+            }
+          ]
+        }
+      },
+      {
+        id: 'legal',
+        title: '10. Cadre Légal',
+        badge: 'Lois & Règles',
+        badgeColor: 'red',
+        description: "Toutes les lois à connaître avec leurs obligations et exemples de justification en copie.",
+        content: {
+          type: 'subsections',
+          subsections: [
+            {
+              id: 'loi-toubon',
+              title: "1️⃣ Loi Toubon (1994) — La langue française",
+              type: 'grid',
+              items: [
+                {
+                  title: "Obligations principales",
+                  color: 'red',
+                  text: [
+                    "Le français est obligatoire dans tout message publicitaire diffusé en France.",
+                    "Exceptions : noms de marques déposées, slogans déposés de marque, produits typiques étrangers."
+                  ]
+                },
+                {
+                  title: "Exemple & Astuce de rédaction en copie",
+                  color: 'blue',
+                  text: [
+                    "Exemple : Une pub avec « Just Do It » est autorisée (signature déposée Nike). Mais « Our products are the best » sans traduction française en bas serait illégale.",
+                    "-> En copie : « Conformément à la loi Toubon, tous les messages de notre campagne seront rédigés en français. »"
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'loi-evin',
+              title: "2️⃣ Loi Évin (1991) — Alcool & Tabac",
+              type: 'table',
+              headers: ['Produit', 'Ce qui est interdit', 'Ce qui est autorisé'],
+              rows: [
+                ['Tabac', 'Toute publicité, parrainage ou mécénat sans exception.', 'Rien. Interdiction totale.'],
+                ['Alcool', 'TV, cinéma, affichage pour les mineurs, parrainage sportif.', 'Presse adulte, radio (certaines tranches), internet (avec barrière d\'âge) + message sanitaire obligatoire.']
+              ],
+              extra: {
+                title: "Exemple & Rdaction à l'examen",
+                items: [
+                  {
+                    label: "Exemple d'application",
+                    color: 'red',
+                    list: [
+                      "Une marque de bière ne peut pas faire de spot TV en France.",
+                      "Elle peut faire une campagne presse adulte avec la mention obligatoire : « L'abus d'alcool est dangereux pour la santé, à consommer avec modération. »"
+                    ]
+                  },
+                  {
+                    label: "Formule pour la copie",
+                    color: 'green',
+                    list: [
+                      "En copie : « Ce support n'étant pas autorisé pour l'alcool par la loi Évin, nous optons pour un encart dans la presse spécialisée adulte. »"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              id: 'droit-auteur',
+              title: "3️⃣ Droit d'auteur & Contrefaçon",
+              type: 'grid',
+              items: [
+                {
+                  title: "Règles d'utilisation des œuvres",
+                  color: 'red',
+                  text: [
+                    "Toute utilisation d'une œuvre (photo, musique, texte, logo) sans autorisation écrite préalable = délit de contrefaçon.",
+                    "Les personnes représentées dans une publicité doivent signer un accord écrit (droit à l'image).",
+                    "Le droit à la vie privée est protégé : pas de diffusion de photos d'un lieu privé ou d'une personne sans accord."
+                  ]
+                },
+                {
+                  title: "Astuce examen",
+                  color: 'green',
+                  text: [
+                    "-> En copie : « Toutes les illustrations et photos utilisées seront libres de droits ou achetées. Les figurants auront préalablement signé une autorisation de droit à l'image. »"
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'rgpd',
+              title: "4️⃣ RGPD (2018) — Protection des données",
+              type: 'grid',
+              items: [
+                {
+                  title: "Principes fondamentaux & Risques",
+                  color: 'red',
+                  text: [
+                    "Toute collecte de données personnelles nécessite le consentement explicite de l'utilisateur (Opt-in).",
+                    "Les personnes disposent d'un droit d'accès, de rectification et d'effacement de leurs données (droit à l'oubli).",
+                    "Les bases de données doivent être documentées (Registre des traitements).",
+                    "Amendes maximales : jusqu'à 4% du chiffre d'affaires mondial."
+                  ]
+                },
+                {
+                  title: "Exemple & Justification en copie",
+                  color: 'blue',
+                  text: [
+                    "Exemple : Lors d'une campagne emailing, on ne peut envoyer des courriels qu'aux contacts ayant explicitement consenti à recevoir nos offres.",
+                    "-> En copie : « Conformément au RGPD, notre campagne d'emailing ne ciblera que des contacts ayant donné leur consentement préalable et explicite (opt-in). »"
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'arpp',
+              title: "5️⃣ Recommandations ARPP — Publicité responsable",
+              type: 'grid',
+              items: [
+                {
+                  title: "Déontologie publicitaire",
+                  color: 'red',
+                  text: [
+                    "L'ARPP fixe les règles de bonne conduite de la publicité en France.",
+                    "Interdit : stéréotypes sexistes, dégradants, violents ou discriminatoires.",
+                    "Interdit : le greenwashing = alléguer des vertus écologiques mensongères ou disproportionnées.",
+                    "Obligation : toute allégation environnementale doit être étayée par des preuves objectives."
+                  ]
+                },
+                {
+                  title: "Mise en garde RSE & Rédaction",
+                  color: 'amber',
+                  text: [
+                    "Attention : Le greenwashing est sévèrement sanctionné. Si la campagne mentionne un argument écologique, des labels certifiés ou des données chiffrées claires doivent servir de preuves.",
+                    "-> En copie : « Conformément aux recommandations de l'ARPP, notre discours environnemental s'appuiera sur des données certifiées et vérifiables. »"
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'secteurs',
+              title: "Autres réglementations sectorielles",
+              type: 'table',
+              headers: ['Secteur d\'activité', 'Obligation légale spécifique'],
+              rows: [
+                ['Médicaments', 'Autorisation obligatoire de l\'ANSM requise avant toute campagne publicitaire.'],
+                ['Alimentation', 'Mentions sanitaires obligatoires (ex : « Pour votre santé, mangez au moins cinq fruits et légumes par jour ») sous peine de taxe.'],
+                ['Crédit à la consommation', 'Affichage obligatoire et lisible du TAEG (Taux Annuel Effectif Global), de la durée et de la mention « Un crédit vous engage et doit être remboursé ».'],
+                ['Publicité comparative', 'Doit porter sur des caractéristiques essentielles, objectives, vérifiables et représentatives. Ne doit pas être trompeuse.'],
+                ['Énergies fossiles', 'Publicité totalement interdite depuis 2023 pour les carburants fossiles.']
+              ]
+            },
+            {
+              id: 'regulation',
+              title: "Organismes de Contrôle & Régulation",
+              type: 'list',
+              items: [
+                {
+                  title: "ARCOM (ex-CSA & Hadopi)",
+                  text: "Régule les médias audiovisuels et numériques (TV, radio, internet). Veille au respect des règles de diffusion."
+                },
+                {
+                  title: "ARPP (Autorité de Régulation Professionnelle de la Publicité)",
+                  text: "Organisme d'autorégulation géré par les professionnels pour assurer une publicité saine et déontologique."
+                },
+                {
+                  title: "DGCCRF",
+                  text: "Organisme d'État qui contrôle et sanctionne les fraudes (pratiques commerciales trompeuses, publicité mensongère)."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'veille',
+        title: '11. Veille & Outils',
+        badge: 'Outils',
+        badgeColor: 'teal',
+        description: "Quel outil choisir et pourquoi — comment argumenter en examen.",
+        content: {
+          type: 'subsections',
+          subsections: [
+            {
+              id: 'veille-definition',
+              title: "💡 Pourquoi faire de la veille ?",
+              type: 'grid',
+              items: [
+                {
+                  title: "L'utilité stratégique",
+                  color: 'green',
+                  text: [
+                    "La veille informationnelle et concurrentielle permet de capter les signaux du marché, d'analyser la concurrence, de suivre l'e-reputation de la marque et de mesurer l'efficacité de ses campagnes.",
+                    "-> C'est le point de départ indispensable pour réaliser le diagnostic (Étape 1 du plan de com)."
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'analyse',
+              title: "📊 Outils d'Analyse d'Audience Web & UX",
+              type: 'grid',
+              items: [
+                {
+                  title: "Google Analytics & Adobe Analytics",
+                  color: 'blue',
+                  text: [
+                    "Google Analytics : Mesure l'audience et le trafic d'un site web (nombre de visiteurs, origine, taux de rebond). Gratuit.",
+                    "-> Justification : « Nous utiliserons Google Analytics pour mesurer le taux de rebond et le parcours des visiteurs sur notre landing page. »",
+                    "Adobe Analytics : Version payante entreprise, offrant une segmentation de données très fine et une attribution multi-touch."
+                  ]
+                },
+                {
+                  title: "Matomo & Hotjar",
+                  color: 'green',
+                  text: [
+                    "Matomo : Outil d'analyse d'audience web hébergé en interne, 100% respectueux du RGPD (recommandé pour les administrations et les marques éthiques).",
+                    "-> Justification : « Nous choisissons Matomo car il garantit que les données de nos utilisateurs restent locales et conformes au RGPD. »",
+                    "Hotjar : Cartes de chaleur (heatmaps) et enregistrements de sessions pour analyser le comportement visuel et l'ergonomie (UX) des pages."
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'medias',
+              title: "📺 Outils de Mesure des Médias Traditionnels",
+              type: 'grid',
+              items: [
+                {
+                  title: "Médiamétrie (Médiamat)",
+                  color: 'purple',
+                  text: [
+                    "Mesure de référence de l'audience de la télévision et de la radio en France. Fournit la PDA (Part d'Audience) et la durée d'écoute.",
+                    "-> Justification : « D'après les mesures Médiamétrie, la tranche horaire choisie bénéficie d'une forte part d'audience auprès de notre cible active. »"
+                  ]
+                },
+                {
+                  title: "Kantar Media & Kantar Sofres",
+                  color: 'amber',
+                  text: [
+                    "Kantar Media : Calcule la pression publicitaire (les budgets investis par les concurrents dans chaque média).",
+                    "Kantar Sofres / BVA : Instituts de sondage réalisant des études d'opinion quantitatives et qualitatives (notoriété, image, satisfaction)."
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'planning',
+              title: "📅 Outils de Gestion & Planification Social Media",
+              type: 'grid',
+              items: [
+                {
+                  title: "Hootsuite & Buffer",
+                  color: 'blue',
+                  text: [
+                    "Hootsuite : Tableau de bord centralisé pour programmer des publications sur plusieurs réseaux sociaux et mesurer l'engagement.",
+                    "Buffer : Solution plus simple et accessible, idéale pour la planification rapide de posts et l'analyse d'impact."
+                  ]
+                },
+                {
+                  title: "Sprout Social",
+                  color: 'teal',
+                  text: [
+                    "Plateforme avancée intégrant un CRM pour réseaux sociaux, la gestion des messages entrants et le social listening."
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'emailing',
+              title: "📧 Outils de Campagnes d'Emailing",
+              type: 'grid',
+              items: [
+                {
+                  title: "Mailchimp & ActiveCampaign",
+                  color: 'amber',
+                  text: [
+                    "Mailchimp : Leader mondial pour la création de newsletters, la segmentation simple d'abonnés et les tests A/B.",
+                    "ActiveCampaign : Plateforme de marketing automation pour programmer des scénarios d'emailing complexes en fonction des actions clients."
+                  ]
+                },
+                {
+                  title: "Brevo (ex-Sendinblue)",
+                  color: 'green',
+                  text: [
+                    "Solution française intégrant emails, SMS et CRM. Conforme au RGPD, idéale pour les entreprises européennes et le B2B.",
+                    "-> Justification : « Nous utiliserons Brevo pour notre campagne d'acquisition B2B pour garantir la conformité RGPD et l'hébergement en Europe. »"
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'veille-info',
+              title: "📰 Outils de Veille Informationnelle & Réputation",
+              type: 'grid',
+              items: [
+                {
+                  title: "Feedly & Google Alerts",
+                  color: 'purple',
+                  text: [
+                    "Feedly : Agrégateur de flux RSS pour suivre et centraliser toute la presse professionnelle en un seul écran.",
+                    "Google Alerts : Outil gratuit pour recevoir des notifications dès qu'un mot-clé ou le nom de votre marque est mentionné sur le web."
+                  ]
+                },
+                {
+                  title: "Mention & Talkwalker",
+                  color: 'red',
+                  text: [
+                    "Mention : Surveille en temps réel l'e-réputation de la marque sur le web, les blogs, les forums et les réseaux sociaux."
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'choix-examen',
+              title: "🎓 Synthèse : Quel outil choisir à l'examen ?",
+              type: 'list',
+              items: [
+                { title: "Trafic et comportement web", text: "Google Analytics (grand public) ou Matomo (sensible / RGPD)." },
+                { title: "Audience Télévision ou Radio", text: "Médiamétrie (PDA, audimat)." },
+                { title: "Surveillance de la concurrence", text: "Kantar Media (pression publicitaire)." },
+                { title: "Newsletter et Emailing marketing", text: "Mailchimp (classique) ou Brevo (B2B, RGPD)." },
+                { title: "Gestion et publication réseaux sociaux", text: "Hootsuite (complet) ou Buffer (simple)." },
+                { title: "Veille et e-réputation", text: "Feedly (RSS) et Mention (social listening)." }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        id: 'acteurs',
+        title: '12. Acteurs de la Com',
+        badge: 'Acteurs',
+        badgeColor: 'purple',
+        description: "Qui mobiliser selon la campagne et comment justifier tes choix.",
+        content: {
+          type: 'subsections',
+          subsections: [
+            {
+              id: 'annonceur',
+              title: "🏢 Les acteurs côté Annonceur (L'entreprise)",
+              type: 'grid',
+              items: [
+                {
+                  title: "Direction Marketing & Chef de Projet",
+                  color: 'blue',
+                  text: [
+                    "Direction Marketing / Communication : Fixe la stratégie, alloue les budgets et valide les créations finales.",
+                    "Chef de Projet / Traffic Manager : Coordonne la campagne au quotidien, gère le planning et fait le lien avec les agences."
+                  ]
+                },
+                {
+                  title: "Chargé d'Études & Community Manager",
+                  color: 'green',
+                  text: [
+                    "Chargé d'Études : Réalise les études de marché, analyse les cibles et configure la veille.",
+                    "Community Manager : Publie, répond aux internautes et gère l'animation des communautés sur les réseaux."
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'agence',
+              title: "🎨 Les acteurs côté Agence (Les prestataires)",
+              type: 'grid',
+              items: [
+                {
+                  title: "Agence 360° & Agence Digitale",
+                  color: 'purple',
+                  text: [
+                    "Agence de Communication (360°) : Prise en charge globale de la stratégie et de la création sur tous les canaux.",
+                    "Agence Digitale : Spécialiste du développement web, du référencement (SEO/SEA) et du marketing numérique."
+                  ]
+                },
+                {
+                  title: "Le Binôme Créatif",
+                  color: 'red',
+                  text: [
+                    "Directeur Artistique (DA) : Traduit le brief en concepts visuels (images, vidéos, chartes graphiques).",
+                    "Concepteur-Rédacteur : Écrit les slogans, les textes de pub et les accroches rédactionnelles."
+                  ]
+                },
+                {
+                  title: "Régie Publicitaire & Imprimeur",
+                  color: 'amber',
+                  text: [
+                    "Régie Publicitaire : Commercialise les espaces pub des médias (ex: régies de chaînes TV ou de sites web).",
+                    "Imprimeur : Réalise le façonnage et le tirage physique des supports de com (affiches, brochures, flyers)."
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'relais',
+              title: "📣 Les acteurs Relais (Les prescripteurs)",
+              type: 'grid',
+              items: [
+                {
+                  title: "Journalistes, Attachés de presse & RP",
+                  color: 'blue',
+                  text: [
+                    "Relaient les messages de la marque dans la presse écrite, radio ou TV à travers des articles ou reportages non payés."
+                  ]
+                },
+                {
+                  title: "Influenceurs & Créateurs de contenu",
+                  color: 'teal',
+                  text: [
+                    "Relaient la campagne auprès de leurs communautés ciblées sur Instagram, TikTok, LinkedIn ou YouTube."
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'mobilisation',
+              title: "🎓 Synthèse : Qui mobiliser selon la campagne ?",
+              type: 'table',
+              headers: ['Type de campagne', 'Acteurs clés à mobiliser'],
+              rows: [
+                ['Lancement grand public', 'Agence 360° (stratégie multi-canal), Binôme créatif (DA + Rédacteur), Régie publicitaire (achat d\'espace TV/affichage), RP & Journalistes (relations presse), Influenceurs.'],
+                ['Campagne B2B (ex: Recyclea)', 'Agence digitale (SEO/SEA/site web), Community Manager (animation LinkedIn), Agence RP spécialisée, Chargé d\'études.'],
+                ['Événement / Salon', 'Agence événementielle (scénographie, logistique), Chef de projet (coordination), Imprimeur (supports print).'],
+                ['Campagne emailing', 'Community Manager, Agence digitale (conception du template), Responsable RGPD.'],
+                ['Relations presse', 'Attaché de presse, Journalistes ciblés, Rédacteur (communiqué de presse).']
+              ],
+              extra: {
+                title: "Méthode pour l'examen",
+                items: [
+                  {
+                    label: "La Règle d'Or",
+                    color: 'red',
+                    list: [
+                      "Dans votre copie, ne vous contentez pas de lister les acteurs.",
+                      "Vous devez justifier de manière logique pourquoi chaque acteur est nécessaire au projet."
+                    ]
+                  },
+                  {
+                    label: "Exemple de phrase type",
+                    color: 'green',
+                    list: [
+                      "« Nous mobiliserons un concepteur-rédacteur et un directeur artistique de l'agence afin de concevoir un visuel percutant et une accroche adaptée pour la cible des DSI. »"
+                    ]
+                  }
+                ]
+              }
+            }
           ]
         }
       },
       {
         id: 'recap',
-        title: '✅ Récapitulatif',
+        title: '🗝️ Mémo D·P·P·O·C·M·B·K',
         content: {
           type: 'table',
-          headers: ['Étape', 'Question clé', 'Piège'],
+          headers: ['Lettre', 'Étape', 'Question clé', 'Piège à éviter'],
           rows: [
-            ['SWOT', 'Où en est-on ?', 'Oublier l\'externe.'],
-            ['Problème', 'Défi à résoudre ?', 'Oublier le "Alors que".'],
-            ['Positionnement', 'Image voulue ?', 'Oublier les 4 critères.'],
-            ['Objectifs', 'Quoi obtenir ?', 'Oublier un des 3 niveaux.'],
-            ['Cibles', 'À qui parler ?', 'Oublier les relais.'],
-            ['Moyens', 'Quels canaux ?', 'Lister sans justifier.'],
-            ['KPI', 'Comment mesurer ?', 'Déconnectés des moyens.']
+            ['D', 'Diagnostic (SWOT)', 'Où en est-on ?', "Oublier l'analyse externe (PESTEL)."],
+            ['P', 'Problème de com', 'Quel défi à résoudre ?', 'Oublier le « alors que » (le frein).'],
+            ['P', 'Positionnement', 'Quelle image voulue ?', 'Oublier un des 4 critères CDAD.'],
+            ['O', 'Objectifs (SMART)', 'Quoi obtenir ?', 'Oublier un des 3 niveaux CAC.'],
+            ['C', 'Cibles', 'À qui parler ?', 'Oublier les cibles relais et interne.'],
+            ['M', 'Moyens (POEM)', 'Quels canaux ?', 'Lister sans justifier par rapport à la cible.'],
+            ['B', 'Budget', 'Combien ça coûte ?', 'Ne pas ventiler (répartir) le budget.'],
+            ['K', 'KPI & Bilan', 'Comment mesurer ?', 'KPI déconnectés des objectifs fixés.']
           ]
         }
       }
