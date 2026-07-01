@@ -583,7 +583,7 @@ export default function App() {
           <div onClick={handleGoHome} className="flex items-center gap-3 cursor-pointer group">
             <div className="w-10 h-10 bg-accent flex items-center justify-center overflow-hidden rounded-xl shadow-md shadow-accent/10">
               <img
-                src={`${import.meta.env.BASE_URL}images/logo-t.png`}
+                src={`${import.meta.env.BASE_URL}images/Logo%20T%20Orange.png`}
                 alt="Logo T"
                 className="w-full h-full object-contain p-1"
                 onError={(e) => {
@@ -719,7 +719,7 @@ export default function App() {
         <div onClick={handleGoHome} className="flex items-center gap-2 cursor-pointer">
           <div className="w-8 h-8 bg-accent flex items-center justify-center overflow-hidden rounded-lg">
             <img
-              src={`${import.meta.env.BASE_URL}images/logo-t.png`}
+              src={`${import.meta.env.BASE_URL}images/Logo%20T%20Orange.png`}
               alt="Logo T"
               className="w-full h-full object-contain p-1"
               onError={(e) => {
