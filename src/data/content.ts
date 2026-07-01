@@ -951,6 +951,16 @@ export const SUBJECTS: Subject[] = [
             }
           ]
         }
+      },
+      {
+        id: 'quiz',
+        title: "Quiz d'entraînement",
+        badge: 'Noté /20',
+        badgeColor: 'amber',
+        content: {
+          type: 'quiz',
+          text: 'Quiz interactif du Bloc 01'
+        }
       }
     ]
   },

@@ -5,6 +5,7 @@ import {
   Menu,
   X,
   CheckCircle2,
+  XCircle,
   AlertCircle,
   Lightbulb,
   Construction,
@@ -24,11 +25,264 @@ import {
   Coffee,
   Zap,
   Bookmark,
-  GraduationCap
+  GraduationCap,
+  Trophy,
+  RotateCcw
 } from 'lucide-react';
 import { cn } from './lib/utils';
 import { SUBJECTS, CEJM_CHAPTERS, Subject, Section, ChapterContent } from './data/content';
 import Home from './components/Home';
+
+interface QuizQuestion {
+  id: number;
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  justification: string;
+}
+
+const QUIZ_QUESTIONS: QuizQuestion[] = [
+  {
+    id: 1,
+    question: "Que signifie le premier \"P\" dans le mémo D·P·P·O·C·M·B·K ?",
+    options: [
+      "Publicité",
+      "Problème de communication",
+      "Positionnement",
+      "Planification"
+    ],
+    correctAnswer: 1,
+    justification: "Le premier 'P' désigne le Problème de communication (le défi à résoudre), tandis que le second 'P' correspond au Positionnement."
+  },
+  {
+    id: 2,
+    question: "Quelle est la particularité d'un objectif de communication de type \"Conatif\" ?",
+    options: [
+      "Faire savoir (faire mémoriser une information)",
+      "Faire aimer (modifier l'attitude ou l'image de marque)",
+      "Faire agir (inciter à l'action, à l'achat ou à l'adhésion)",
+      "Faire comprendre (expliquer le fonctionnement d'un service)"
+    ],
+    correctAnswer: 2,
+    justification: "Le conatif concerne le comportement (faire agir). Le cognitif concerne la notoriété (faire savoir) et l'affectif concerne l'image (faire aimer)."
+  },
+  {
+    id: 3,
+    question: "Quels sont les 4 critères d'évaluation d'un bon positionnement (CDAD) ?",
+    options: [
+      "Clarté, Distinction, Attractivité, Durabilité",
+      "Clarté, Différenciation, Attractivité, Crédibilité",
+      "Cohérence, Différenciation, Attrait, Démonstration",
+      "Cible, Diagnostic, Action, Budget"
+    ],
+    correctAnswer: 1,
+    justification: "Un bon positionnement doit répondre aux critères CDAD : Simple/Clair, Différenciateur (se distinguer), Attractif (répondre à un besoin) et Crédible (réaliste)."
+  },
+  {
+    id: 4,
+    question: "Dans le diagnostic PESTEL, quels facteurs représentent la lettre \"E\" ?",
+    options: [
+      "Économique et Éthique",
+      "Environnemental et Économique",
+      "Étatique et Éducatif",
+      "Externe et Efficace"
+    ],
+    correctAnswer: 1,
+    justification: "Dans la méthode PESTEL, le premier 'E' correspond aux facteurs Économiques (inflation, taux de change) et le second 'E' aux facteurs Écologiques / Environnementaux."
+  },
+  {
+    id: 5,
+    question: "Quelle cible désigne le sous-ensemble prioritaire à qui le message est spécifiquement adressé ?",
+    options: [
+      "La cible principale",
+      "Le cœur de cible",
+      "La cible secondaire",
+      "Les relais d'opinion"
+    ],
+    correctAnswer: 1,
+    justification: "Le cœur de cible est le noyau restreint sur lequel on concentre l'effort de communication car il présente le plus fort potentiel d'achat."
+  },
+  {
+    id: 6,
+    question: "Dans le modèle POEM, qu'est-ce que le \"Owned Media\" ?",
+    options: [
+      "Les espaces publicitaires payants (TV, affichage)",
+      "L'exposition gratuite obtenue via le bouche-à-oreille et les avis",
+      "Les canaux de communication détenus en propre par la marque (site web, blog, newsletters)",
+      "Les médias traditionnels uniquement"
+    ],
+    correctAnswer: 2,
+    justification: "Owned Media correspond aux médias possédés par la marque. Paid Media correspond aux médias payants, et Earned Media désigne l'exposition gagnée gratuitement."
+  },
+  {
+    id: 7,
+    question: "La Loi Évin de 1991 réglemente strictement la publicité pour quels types de produits ?",
+    options: [
+      "Les produits financiers et bancaires",
+      "L'alcool et le tabac",
+      "Les produits alimentaires trop gras ou sucrés",
+      "Les médicaments sans ordonnance"
+    ],
+    correctAnswer: 1,
+    justification: "La loi Évin interdit toute publicité directe ou indirecte en faveur du tabac, et encadre très strictement les supports et messages autorisés pour l'alcool."
+  },
+  {
+    id: 8,
+    question: "Quelle autorité d'autorégulation formule des recommandations déontologiques pour la publicité en France ?",
+    options: [
+      "L'ARPP (Autorité de Régulation Professionnelle de la Publicité)",
+      "La CNIL (Commission Nationale de l'Informatique et des Libertés)",
+      "L'Arcom (ex-CSA)",
+      "L'ARCEP"
+    ],
+    correctAnswer: 0,
+    justification: "L'ARPP est un organisme d'autodiscipline créé par les professionnels du secteur (annonceurs, agences, médias) pour promouvoir une publicité loyale et éthique."
+  },
+  {
+    id: 9,
+    question: "Le RGPD encadre les données personnelles. Quelle est l'amende maximale théorique en cas de non-respect ?",
+    options: [
+      "100 000 € maximum",
+      "Jusqu'à 20 millions d'euros ou 4% du CA annuel mondial",
+      "500 000 € ou 1% du CA annuel mondial",
+      "Il n'y a pas de sanction financière, uniquement pénale"
+    ],
+    correctAnswer: 1,
+    justification: "Les sanctions administratives du RGPD peuvent atteindre 20 millions d'euros ou 4% du chiffre d'affaires mondial de l'exercice précédent, le montant le plus élevé étant retenu."
+  },
+  {
+    id: 10,
+    question: "Pour quel type d'activité l'outil Hootsuite est-il principalement conçu ?",
+    options: [
+      "La gestion des newsletters et de l'emailing",
+      "La planification et le monitoring des comptes réseaux sociaux",
+      "L'analyse du trafic et de l'audience web",
+      "Le suivi de la relation client (CRM)"
+    ],
+    correctAnswer: 1,
+    justification: "Hootsuite est une plateforme de gestion des médias sociaux qui permet de planifier des publications et de surveiller l'engagement sur plusieurs réseaux à la fois."
+  },
+  {
+    id: 11,
+    question: "Quel acteur est à l'origine d'une campagne et en assume le financement ?",
+    options: [
+      "L'Agence de communication",
+      "L'Annonceur",
+      "Le Relais d'opinion",
+      "La Régie publicitaire"
+    ],
+    correctAnswer: 1,
+    justification: "L'Annonceur est l'entité (entreprise, association, service public) qui souhaite communiquer et commande la campagne à une agence."
+  },
+  {
+    id: 12,
+    question: "Dans le Brief Créatif, qu'est-ce que la \"Promesse\" ?",
+    options: [
+      "Le montant du budget alloué par l'annonceur",
+      "L'avantage clé apporté par le produit ou service à la cible",
+      "Le calendrier prévisionnel de production",
+      "L'engagement légal de l'agence sur les résultats"
+    ],
+    correctAnswer: 1,
+    justification: "La promesse est le bénéfice principal ou l'argument majeur que la création publicitaire doit transmettre à la cible pour la convaincre."
+  },
+  {
+    id: 13,
+    question: "Dans un objectif défini selon la méthode \"SMART\", que signifie la lettre \"M\" ?",
+    options: [
+      "Motivant",
+      "Mesurable",
+      "Majeur",
+      "Méthodique"
+    ],
+    correctAnswer: 1,
+    justification: "Un objectif SMART doit être : Spécifique, Mesurable (pour pouvoir calculer l'indicateur d'efficacité), Atteignable, Réaliste et Temporellement défini."
+  },
+  {
+    id: 14,
+    question: "Qu'est-ce qu'un \"Lead\" dans le jargon de la communication digitale ?",
+    options: [
+      "La première page d'un site internet",
+      "Un contact commercial qualifié ou prospect ayant manifesté un intérêt",
+      "Le responsable de l'équipe créative",
+      "Un lien publicitaire sponsorisé"
+    ],
+    correctAnswer: 1,
+    justification: "Un lead est un prospect qui a fourni des informations de contact (ex: en remplissant un formulaire sur une landing page) en échange d'un contenu."
+  },
+  {
+    id: 15,
+    question: "La loi Toubon de 1994 impose l'usage de quelle langue dans les publicités en France ?",
+    options: [
+      "Le français (avec traduction obligatoire des termes étrangers)",
+      "L'anglais, langue internationale des affaires",
+      "La langue maternelle de la cible principale",
+      "Il n'y a aucune restriction linguistique en France"
+    ],
+    correctAnswer: 0,
+    justification: "La loi Toubon impose l'utilisation de la langue française dans la désignation, l'offre, la présentation, le mode d'emploi et la publicité des biens et services."
+  },
+  {
+    id: 16,
+    question: "Dans le domaine de la veille, quel outil permet de regrouper des flux RSS pour suivre le marché ?",
+    options: [
+      "Feedly",
+      "Brevo",
+      "Mailchimp",
+      "Google Analytics"
+    ],
+    correctAnswer: 0,
+    justification: "Feedly est un agrégateur de flux d'informations qui permet d'organiser et de lire des contenus provenant de multiples blogs et sites d'actualité en un seul endroit."
+  },
+  {
+    id: 17,
+    question: "Dans une matrice SWOT, les \"Menaces\" sont identifiées lors de quelle étape de l'analyse ?",
+    options: [
+      "L'analyse interne (forces/faiblesses)",
+      "L'analyse externe (opportunités/menaces)",
+      "La définition du plan média",
+      "La budgétisation de la campagne"
+    ],
+    correctAnswer: 1,
+    justification: "Les opportunités et les menaces proviennent de l'environnement externe de l'entreprise (marché, concurrence, législation) sur lequel elle n'a pas de contrôle direct."
+  },
+  {
+    id: 18,
+    question: "Quel indicateur (KPI) mesure la part d'internautes ayant cliqué sur une annonce après l'avoir vue ?",
+    options: [
+      "Le taux de conversion",
+      "Le taux de clic (CTR - Click-Through Rate)",
+      "Le taux de rebond",
+      "Le coût par action (CPA)"
+    ],
+    correctAnswer: 1,
+    justification: "Le CTR (Click-Through Rate) correspond au nombre de clics divisé par le nombre d'impressions (affichages), exprimé sous forme de pourcentage."
+  },
+  {
+    id: 19,
+    question: "Quelle autorité publique indépendante contrôle l'application du RGPD en France ?",
+    options: [
+      "L'ARPP",
+      "La CNIL (Commission Nationale de l'Informatique et des Libertés)",
+      "L'Arcom",
+      "Le Ministère de la Justice"
+    ],
+    correctAnswer: 1,
+    justification: "La CNIL est le régulateur des données personnelles en France. Elle conseille, contrôle et peut infliger des sanctions en cas de violation du RGPD."
+  },
+  {
+    id: 20,
+    question: "Quelle cible regroupe les prescripteurs, journalistes et influenceurs capables d'amplifier le message ?",
+    options: [
+      "Le cœur de cible",
+      "La cible secondaire ou les relais d'opinion",
+      "Les acheteurs directs",
+      "La cible principale"
+    ],
+    correctAnswer: 1,
+    justification: "Les relais d'opinion (presse, influenceurs, prescripteurs) diffusent ou légitiment le message auprès du public final, agissant comme cible secondaire indirecte."
+  }
+];
 
 export default function App() {
   const [isHome, setIsHome] = useState(true);
@@ -37,6 +291,23 @@ export default function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeCejmChapter, setActiveCejmChapter] = useState<ChapterContent | null>(null);
+
+  // State pour le Quiz
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
+  const [score, setScore] = useState(0);
+  const [quizAnswers, setQuizAnswers] = useState<{ questionId: number; isCorrect: boolean; selected: number }[]>([]);
+  const [isQuizFinished, setIsQuizFinished] = useState(false);
+
+  const resetQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setSelectedOption(null);
+    setIsAnswerSubmitted(false);
+    setScore(0);
+    setQuizAnswers([]);
+    setIsQuizFinished(false);
+  };
 
   // Gestion dynamique du thème Clair / Sombre
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
@@ -104,6 +375,10 @@ export default function App() {
         } else {
           setActiveCejmChapter(null);
         }
+
+        if (sectId === 'quiz') {
+          resetQuiz();
+        }
       }
     };
 
@@ -153,6 +428,7 @@ export default function App() {
       case 'legal': return <ShieldCheck size={14} />;
       case 'veille': return <Search size={14} />;
       case 'acteurs': return <Users size={14} />;
+      case 'quiz': return <Trophy size={14} />;
       // Culture
       case 'la-rue': return <Compass size={14} />;
       case 'le-repas': return <Coffee size={14} />;
@@ -621,6 +897,222 @@ export default function App() {
     );
   };
 
+  const renderQuiz = () => {
+    if (isQuizFinished) {
+      const percentage = (score / QUIZ_QUESTIONS.length) * 100;
+      let reviewMessage = "";
+      let emoji = "🏆";
+      if (score >= 18) {
+        reviewMessage = "👑 Excellent ! Vous maîtrisez parfaitement le Bloc 01 ! Prêt pour le BTS !";
+        emoji = "👑";
+      } else if (score >= 14) {
+        reviewMessage = "✨ Très bien ! Vos connaissances sont solides, continuez ainsi !";
+        emoji = "✨";
+      } else if (score >= 10) {
+        reviewMessage = "👍 Moyenne obtenue. Révisez encore quelques notions pour être serein.";
+        emoji = "👍";
+      } else {
+        reviewMessage = "📚 À réviser ! Relisez attentivement les fiches du Bloc 01 pour vous améliorer.";
+        emoji = "📚";
+      }
+
+      return (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="bg-bg-card border border-border-theme rounded-3xl p-6 md:p-8 space-y-8 text-center max-w-2xl mx-auto shadow-lg"
+        >
+          <div className="space-y-4">
+            <span className="text-5xl md:text-6xl block">{emoji}</span>
+            <h3 className="text-xl md:text-3xl font-black tracking-tight text-text-main">Quiz Terminé !</h3>
+            <p className="text-xs md:text-sm text-text-muted max-w-md mx-auto">{reviewMessage}</p>
+          </div>
+
+          <div className="py-6 px-8 bg-bg-page border border-border-theme rounded-2xl inline-block">
+            <span className="text-[10px] uppercase font-black tracking-widest text-text-muted block mb-1">Votre Note</span>
+            <span className="text-3xl md:text-5xl font-black text-accent">{score} <span className="text-lg md:text-2xl text-text-muted">/ 20</span></span>
+          </div>
+
+          <div className="text-left space-y-3.5 max-h-[300px] overflow-y-auto pr-2 no-scrollbar border-t border-border-theme pt-6">
+            <h4 className="text-xs font-black uppercase tracking-wider text-text-muted mb-2">Détail des réponses :</h4>
+            {QUIZ_QUESTIONS.map((q, idx) => {
+              const answer = quizAnswers.find(a => a.questionId === q.id);
+              const isCorrect = answer?.isCorrect;
+              return (
+                <div key={q.id} className="flex items-start justify-between gap-4 p-3 bg-bg-page/40 rounded-xl border border-border-theme/40 text-xs">
+                  <div className="flex-1 space-y-1">
+                    <span className="font-bold text-text-main">Q{idx + 1}. {q.question}</span>
+                    {answer && !isCorrect && (
+                      <p className="text-[10px] text-rose-500 font-medium">Votre réponse : {q.options[answer.selected]}</p>
+                    )}
+                    <p className="text-[10px] text-emerald-500 font-medium">Correction : {q.options[q.correctAnswer]}</p>
+                  </div>
+                  <div className="flex-shrink-0 mt-0.5">
+                    {isCorrect ? (
+                      <CheckCircle2 size={16} className="text-emerald-500" />
+                    ) : (
+                      <XCircle size={16} className="text-rose-500" />
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <button
+            onClick={resetQuiz}
+            className="w-full sm:w-auto px-6 py-3.5 bg-accent text-black font-black rounded-xl text-xs md:text-sm shadow-md hover:bg-accent/80 hover:-translate-y-0.5 transition-all cursor-pointer inline-flex items-center justify-center gap-2"
+          >
+            <RotateCcw size={16} />
+            Recommencer le Quiz
+          </button>
+        </motion.div>
+      );
+    }
+
+    const currentQuestion = QUIZ_QUESTIONS[currentQuestionIndex];
+    const progress = ((currentQuestionIndex + 1) / QUIZ_QUESTIONS.length) * 100;
+
+    const handleOptionSelect = (idx: number) => {
+      if (isAnswerSubmitted) return;
+      setSelectedOption(idx);
+    };
+
+    const handleValidate = () => {
+      if (selectedOption === null || isAnswerSubmitted) return;
+      
+      const isCorrect = selectedOption === currentQuestion.correctAnswer;
+      if (isCorrect) {
+        setScore(prev => prev + 1);
+      }
+      setQuizAnswers(prev => [...prev, { questionId: currentQuestion.id, isCorrect, selected: selectedOption }]);
+      setIsAnswerSubmitted(true);
+    };
+
+    const handleNext = () => {
+      setSelectedOption(null);
+      setIsAnswerSubmitted(false);
+      if (currentQuestionIndex < QUIZ_QUESTIONS.length - 1) {
+        setCurrentQuestionIndex(prev => prev + 1);
+      } else {
+        setIsQuizFinished(true);
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    return (
+      <div className="max-w-2xl mx-auto space-y-6">
+        <div className="bg-bg-card border border-border-theme rounded-2xl p-4 md:p-5 flex items-center justify-between gap-4 transition-colors duration-300">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent">
+              <Trophy size={16} />
+            </div>
+            <div>
+              <span className="text-[10px] text-text-muted uppercase font-black tracking-wider block">Question</span>
+              <span className="text-sm font-black text-text-main">{currentQuestionIndex + 1} / {QUIZ_QUESTIONS.length}</span>
+            </div>
+          </div>
+          <div className="flex-1 max-w-[200px] h-2 bg-bg-page border border-border-theme rounded-full overflow-hidden">
+            <div className="h-full bg-accent transition-all duration-300" style={{ width: `${progress}%` }} />
+          </div>
+          <div className="text-right">
+            <span className="text-[10px] text-text-muted uppercase font-black tracking-wider block">Score actuel</span>
+            <span className="text-sm font-black text-accent">{score} <span className="text-[10px] text-text-muted font-bold">/ {currentQuestionIndex}</span></span>
+          </div>
+        </div>
+
+        <motion.div
+          key={currentQuestion.id}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-bg-card border border-border-theme rounded-3xl p-6 md:p-8 space-y-6 md:space-y-8 shadow-sm transition-colors duration-300"
+        >
+          <h3 className="text-base md:text-lg font-black leading-snug text-text-main">
+            {currentQuestion.question}
+          </h3>
+
+          <div className="grid grid-cols-1 gap-3.5">
+            {currentQuestion.options.map((option, idx) => {
+              const isSelected = selectedOption === idx;
+              const isCorrectOpt = idx === currentQuestion.correctAnswer;
+              
+              let optionClass = "border-border-theme hover:border-accent/40 text-text-muted bg-bg-page/20 hover:bg-bg-page/60";
+              if (isSelected && !isAnswerSubmitted) {
+                optionClass = "bg-accent/10 text-accent border-accent/40 font-bold";
+              } else if (isAnswerSubmitted) {
+                if (isCorrectOpt) {
+                  optionClass = "bg-emerald-500/10 text-emerald-500 border-emerald-500/40 font-bold shadow-xs";
+                } else if (isSelected) {
+                  optionClass = "bg-rose-500/10 text-rose-500 border-rose-500/40 font-bold shadow-xs";
+                } else {
+                  optionClass = "opacity-50 border-border-theme text-text-muted bg-bg-page/10";
+                }
+              }
+
+              return (
+                <button
+                  key={idx}
+                  onClick={() => handleOptionSelect(idx)}
+                  disabled={isAnswerSubmitted}
+                  className={cn(
+                    "w-full text-left p-4 rounded-xl border text-xs md:text-sm font-medium transition-all duration-200 cursor-pointer flex items-center justify-between gap-4",
+                    optionClass
+                  )}
+                >
+                  <span>{option}</span>
+                  {isAnswerSubmitted && isCorrectOpt && (
+                    <CheckCircle2 size={16} className="text-emerald-500 flex-shrink-0" />
+                  )}
+                  {isAnswerSubmitted && isSelected && !isCorrectOpt && (
+                    <XCircle size={16} className="text-rose-500 flex-shrink-0" />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {isAnswerSubmitted && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              className="p-4 bg-accent/5 border border-accent/10 rounded-xl flex gap-3 text-xs"
+            >
+              <Lightbulb className="text-accent flex-shrink-0 mt-0.5" size={16} />
+              <div className="space-y-1">
+                <span className="font-bold text-accent uppercase tracking-wider text-[10px]">Justification</span>
+                <p className="text-text-main font-medium leading-relaxed">{currentQuestion.justification}</p>
+              </div>
+            </motion.div>
+          )}
+
+          <div className="flex justify-end pt-4 border-t border-border-theme">
+            {!isAnswerSubmitted ? (
+              <button
+                onClick={handleValidate}
+                disabled={selectedOption === null}
+                className={cn(
+                  "px-6 py-3.5 font-bold rounded-xl text-xs md:text-sm shadow-md transition-all flex items-center justify-center gap-2",
+                  selectedOption === null
+                    ? "bg-bg-page border border-border-theme text-text-muted cursor-not-allowed opacity-50 shadow-none"
+                    : "bg-accent text-black hover:bg-accent/80 hover:-translate-y-0.5 cursor-pointer"
+                )}
+              >
+                Valider la réponse
+              </button>
+            ) : (
+              <button
+                onClick={handleNext}
+                className="px-6 py-3.5 bg-accent text-black font-black rounded-xl text-xs md:text-sm shadow-md hover:bg-accent/80 hover:-translate-y-0.5 transition-all cursor-pointer flex items-center justify-center gap-2"
+              >
+                {currentQuestionIndex < QUIZ_QUESTIONS.length - 1 ? "Question suivante" : "Voir mon score"}
+              </button>
+            )}
+          </div>
+        </motion.div>
+      </div>
+    );
+  };
+
   // --------------- CONTENT ROUTER ---------------
 
   const renderContent = (content: any) => {
@@ -636,6 +1128,7 @@ export default function App() {
       case 'exces-full': return renderSubsections(content.subsections);
       case 'subsections': return renderSubsections(content.subsections);
       case 'cejm-chapters': return renderCejmChapters(content);
+      case 'quiz': return renderQuiz();
       default: return <p className="text-text-muted text-sm">Contenu introuvable.</p>;
     }
   };
@@ -976,6 +1469,33 @@ export default function App() {
                   <p className="text-text-muted text-xs md:text-sm max-w-xl font-medium leading-relaxed">{activeSubject.description}</p>
                 </motion.div>
               </AnimatePresence>
+
+              {/* Promotion Quiz Bloc 01 */}
+              {activeSubject.id === 'bloc1' && activeSection.id !== 'quiz' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-gradient-to-br from-accent/10 via-accent/5 to-transparent border border-accent/20 rounded-3xl p-5 md:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm"
+                >
+                  <div className="space-y-1">
+                    <h3 className="text-sm md:text-base font-black text-text-main flex items-center gap-2">
+                      <span>🧠</span> Testez vos connaissances !
+                    </h3>
+                    <p className="text-xs text-text-muted leading-relaxed max-w-xl">
+                      Prêt pour l'épreuve ? Faites le quiz d'entraînement du Bloc 01 noté sur 20.
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      window.location.hash = `#bloc1/quiz`;
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="px-5 py-3 bg-accent text-black font-black rounded-xl text-xs shadow-md hover:bg-accent/80 hover:shadow-accent/15 hover:-translate-y-0.5 transition-all cursor-pointer whitespace-nowrap self-start sm:self-auto"
+                  >
+                    Lancer le Quiz (sur 20)
+                  </button>
+                </motion.div>
+              )}
 
               {/* Section Tabs (Mobile Only) */}
               <div className="lg:hidden flex bg-border-theme gap-[1px] mb-2 overflow-x-auto no-scrollbar rounded-xl border border-border-theme shadow-sm">
