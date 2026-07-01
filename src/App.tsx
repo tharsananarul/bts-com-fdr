@@ -656,7 +656,7 @@ export default function App() {
         {/* Header Sidebar */}
         <div className="h-20 border-b border-border-theme px-6 flex items-center justify-between">
           <div onClick={handleGoHome} className="flex items-center gap-3 cursor-pointer group">
-            <div className="w-10 h-10 bg-accent flex items-center justify-center overflow-hidden rounded-xl shadow-md shadow-accent/10">
+            <div className="w-10 h-10 bg-white dark:bg-zinc-900 border border-border-theme flex items-center justify-center overflow-hidden rounded-xl shadow-sm">
               <img
                 src={`${import.meta.env.BASE_URL}images/Logo%20T%20Orange.png`}
                 alt="Logo T"
@@ -792,7 +792,7 @@ export default function App() {
 
         {/* Logo */}
         <div onClick={handleGoHome} className="flex items-center gap-2 cursor-pointer">
-          <div className="w-8 h-8 bg-accent flex items-center justify-center overflow-hidden rounded-lg">
+          <div className="w-8 h-8 bg-white dark:bg-zinc-900 border border-border-theme flex items-center justify-center overflow-hidden rounded-lg shadow-xs">
             <img
               src={`${import.meta.env.BASE_URL}images/Logo%20T%20Orange.png`}
               alt="Logo T"
