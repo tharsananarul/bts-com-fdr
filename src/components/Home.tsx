@@ -42,16 +42,16 @@ export default function Home({ onNavigate }: HomeProps) {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full bg-bg-card border border-border-theme rounded-3xl p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative shadow-lg"
+          className="w-full bg-bg-card border border-border-theme rounded-3xl p-6 md:p-8 lg:p-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 overflow-hidden relative shadow-lg"
         >
           {/* Background decorative gradient */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
           
-          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left z-10">
+          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left z-10 min-w-0">
             <span className="text-[10px] uppercase font-black text-accent tracking-[3px] bg-accent/10 px-3 py-1.5 rounded-full mb-4">
               Plateforme de Révision
             </span>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none mb-4 uppercase">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tight leading-none mb-4 uppercase">
               Révisez votre <br className="hidden md:inline" />
               <span className="text-accent">BTS Communication</span>
             </h1>
@@ -60,7 +60,7 @@ export default function Home({ onNavigate }: HomeProps) {
             </p>
           </div>
 
-          <div className="w-[200px] h-[200px] md:w-[260px] md:h-[260px] flex-shrink-0 flex items-center justify-center">
+          <div className="w-[180px] h-[180px] md:w-[200px] md:h-[200px] lg:w-[260px] lg:h-[260px] flex-shrink-0 flex items-center justify-center">
             <DotLottieReact
               src="https://lottie.host/d4eadce2-a738-4f03-86d7-6c655288b5aa/bt50OB3IhZ.lottie"
               loop
