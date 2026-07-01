@@ -44,18 +44,6 @@ interface QuizQuestion {
 const QUIZ_QUESTIONS: QuizQuestion[] = [
   {
     id: 1,
-    question: "Que signifie le premier \"P\" dans le mémo D·P·P·O·C·M·B·K ?",
-    options: [
-      "Publicité",
-      "Problème de communication",
-      "Positionnement",
-      "Planification"
-    ],
-    correctAnswer: 1,
-    justification: "Le premier 'P' désigne le Problème de communication (le défi à résoudre), tandis que le second 'P' correspond au Positionnement."
-  },
-  {
-    id: 2,
     question: "Quelle est la particularité d'un objectif de communication de type \"Conatif\" ?",
     options: [
       "Faire savoir (faire mémoriser une information)",
@@ -67,7 +55,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "Le conatif concerne le comportement (faire agir). Le cognitif concerne la notoriété (faire savoir) et l'affectif concerne l'image (faire aimer)."
   },
   {
-    id: 3,
+    id: 2,
     question: "Quels sont les 4 critères d'évaluation d'un bon positionnement (CDAD) ?",
     options: [
       "Clarté, Distinction, Attractivité, Durabilité",
@@ -79,7 +67,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "Un bon positionnement doit répondre aux critères CDAD : Simple/Clair, Différenciateur (se distinguer), Attractif (répondre à un besoin) et Crédible (réaliste)."
   },
   {
-    id: 4,
+    id: 3,
     question: "Dans le diagnostic PESTEL, quels facteurs représentent la lettre \"E\" ?",
     options: [
       "Économique et Éthique",
@@ -91,7 +79,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "Dans la méthode PESTEL, le premier 'E' correspond aux facteurs Économiques (inflation, taux de change) et le second 'E' aux facteurs Écologiques / Environnementaux."
   },
   {
-    id: 5,
+    id: 4,
     question: "Quelle cible désigne le sous-ensemble prioritaire à qui le message est spécifiquement adressé ?",
     options: [
       "La cible principale",
@@ -103,7 +91,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "Le cœur de cible est le noyau restreint sur lequel on concentre l'effort de communication car il présente le plus fort potentiel d'achat."
   },
   {
-    id: 6,
+    id: 5,
     question: "Dans le modèle POEM, qu'est-ce que le \"Owned Media\" ?",
     options: [
       "Les espaces publicitaires payants (TV, affichage)",
@@ -115,7 +103,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "Owned Media correspond aux médias possédés par la marque. Paid Media correspond aux médias payants, et Earned Media désigne l'exposition gagnée gratuitement."
   },
   {
-    id: 7,
+    id: 6,
     question: "La Loi Évin de 1991 réglemente strictement la publicité pour quels types de produits ?",
     options: [
       "Les produits financiers et bancaires",
@@ -127,7 +115,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "La loi Évin interdit toute publicité directe ou indirecte en faveur du tabac, et encadre très strictement les supports et messages autorisés pour l'alcool."
   },
   {
-    id: 8,
+    id: 7,
     question: "Quelle autorité d'autorégulation formule des recommandations déontologiques pour la publicité en France ?",
     options: [
       "L'ARPP (Autorité de Régulation Professionnelle de la Publicité)",
@@ -139,7 +127,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "L'ARPP est un organisme d'autodiscipline créé par les professionnels du secteur (annonceurs, agences, médias) pour promouvoir une publicité loyale et éthique."
   },
   {
-    id: 9,
+    id: 8,
     question: "Le RGPD encadre les données personnelles. Quelle est l'amende maximale théorique en cas de non-respect ?",
     options: [
       "100 000 € maximum",
@@ -151,7 +139,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "Les sanctions administratives du RGPD peuvent atteindre 20 millions d'euros ou 4% du chiffre d'affaires mondial de l'exercice précédent, le montant le plus élevé étant retenu."
   },
   {
-    id: 10,
+    id: 9,
     question: "Pour quel type d'activité l'outil Hootsuite est-il principalement conçu ?",
     options: [
       "La gestion des newsletters et de l'emailing",
@@ -163,7 +151,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "Hootsuite est une plateforme de gestion des médias sociaux qui permet de planifier des publications et de surveiller l'engagement sur plusieurs réseaux à la fois."
   },
   {
-    id: 11,
+    id: 10,
     question: "Quel acteur est à l'origine d'une campagne et en assume le financement ?",
     options: [
       "L'Agence de communication",
@@ -175,7 +163,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "L'Annonceur est l'entité (entreprise, association, service public) qui souhaite communiquer et commande la campagne à une agence."
   },
   {
-    id: 12,
+    id: 11,
     question: "Dans le Brief Créatif, qu'est-ce que la \"Promesse\" ?",
     options: [
       "Le montant du budget alloué par l'annonceur",
@@ -187,7 +175,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "La promesse est le bénéfice principal ou l'argument majeur que la création publicitaire doit transmettre à la cible pour la convaincre."
   },
   {
-    id: 13,
+    id: 12,
     question: "Dans un objectif défini selon la méthode \"SMART\", que signifie la lettre \"M\" ?",
     options: [
       "Motivant",
@@ -199,7 +187,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "Un objectif SMART doit être : Spécifique, Mesurable (pour pouvoir calculer l'indicateur d'efficacité), Atteignable, Réaliste et Temporellement défini."
   },
   {
-    id: 14,
+    id: 13,
     question: "Qu'est-ce qu'un \"Lead\" dans le jargon de la communication digitale ?",
     options: [
       "La première page d'un site internet",
@@ -211,7 +199,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "Un lead est un prospect qui a fourni des informations de contact (ex: en remplissant un formulaire sur une landing page) en échange d'un contenu."
   },
   {
-    id: 15,
+    id: 14,
     question: "La loi Toubon de 1994 impose l'usage de quelle langue dans les publicités en France ?",
     options: [
       "Le français (avec traduction obligatoire des termes étrangers)",
@@ -223,7 +211,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "La loi Toubon impose l'utilisation de la langue française dans la désignation, l'offre, la présentation, le mode d'emploi et la publicité des biens et services."
   },
   {
-    id: 16,
+    id: 15,
     question: "Dans le domaine de la veille, quel outil permet de regrouper des flux RSS pour suivre le marché ?",
     options: [
       "Feedly",
@@ -235,7 +223,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "Feedly est un agrégateur de flux d'informations qui permet d'organiser et de lire des contenus provenant de multiples blogs et sites d'actualité en un seul endroit."
   },
   {
-    id: 17,
+    id: 16,
     question: "Dans une matrice SWOT, les \"Menaces\" sont identifiées lors de quelle étape de l'analyse ?",
     options: [
       "L'analyse interne (forces/faiblesses)",
@@ -247,7 +235,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "Les opportunités et les menaces proviennent de l'environnement externe de l'entreprise (marché, concurrence, législation) sur lequel elle n'a pas de contrôle direct."
   },
   {
-    id: 18,
+    id: 17,
     question: "Quel indicateur (KPI) mesure la part d'internautes ayant cliqué sur une annonce après l'avoir vue ?",
     options: [
       "Le taux de conversion",
@@ -259,7 +247,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "Le CTR (Click-Through Rate) correspond au nombre de clics divisé par le nombre d'impressions (affichages), exprimé sous forme de pourcentage."
   },
   {
-    id: 19,
+    id: 18,
     question: "Quelle autorité publique indépendante contrôle l'application du RGPD en France ?",
     options: [
       "L'ARPP",
@@ -271,7 +259,7 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     justification: "La CNIL est le régulateur des données personnelles en France. Elle conseille, contrôle et peut infliger des sanctions en cas de violation du RGPD."
   },
   {
-    id: 20,
+    id: 19,
     question: "Quelle cible regroupe les prescripteurs, journalistes et influenceurs capables d'amplifier le message ?",
     options: [
       "Le cœur de cible",
@@ -281,6 +269,174 @@ const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctAnswer: 1,
     justification: "Les relais d'opinion (presse, influenceurs, prescripteurs) diffusent ou légitiment le message auprès du public final, agissant comme cible secondaire indirecte."
+  },
+  {
+    id: 20,
+    question: "Quelle est la première étape de la méthodologie D·P·P·O·C·M·B·K ?",
+    options: [
+      "Le Diagnostic (SWOT / PESTEL)",
+      "Le Problème de communication",
+      "Le Positionnement (CDAD)",
+      "Les Objectifs (SMART)"
+    ],
+    correctAnswer: 0,
+    justification: "Le 'D' initial correspond au Diagnostic, étape essentielle d'analyse avant d'identifier le problème ou de formuler la stratégie."
+  },
+  {
+    id: 21,
+    question: "Que désigne la lettre \"K\" finale dans le mémo D·P·P·O·C·M·B·K ?",
+    options: [
+      "Les Indicateurs Clés de Performance (KPI) et le Contrôle de l'efficacité",
+      "Le Kit de communication opérationnel",
+      "Le Kiosque ou canal de diffusion physique",
+      "La Keynote de présentation finale"
+    ],
+    correctAnswer: 0,
+    justification: "La lettre 'K' finale fait référence aux Key Performance Indicators (KPI) indispensables pour mesurer l'atteinte des objectifs de la campagne."
+  },
+  {
+    id: 22,
+    question: "Quelle différence majeure existe-t-il entre le diagnostic SWOT et le diagnostic PESTEL ?",
+    options: [
+      "SWOT analyse à la fois l'interne et l'externe, alors que PESTEL analyse uniquement le macro-environnement externe",
+      "SWOT concerne uniquement le budget, alors que PESTEL sert à rédiger les messages",
+      "PESTEL analyse l'interne (forces/faiblesses) et SWOT l'externe (lois, politique)",
+      "Il n'y a aucune différence méthodologique entre les deux"
+    ],
+    correctAnswer: 0,
+    justification: "Le SWOT classe les facteurs en forces/faiblesses (interne) et opportunités/menaces (externe). Le PESTEL sert uniquement à cadrer l'analyse externe macro-environnementale."
+  },
+  {
+    id: 23,
+    question: "Dans le cadre des objectifs de communication, que vise à modifier un objectif affectif chez la cible ?",
+    options: [
+      "Les opinions, les préférences et l'attitude envers la marque (faire aimer)",
+      "La notoriété, la mémoire et le niveau d'information (faire savoir)",
+      "Les comportements réels d'achat, de visite ou de clic (faire agir)",
+      "L'esprit critique et la résistance à la publicité"
+    ],
+    correctAnswer: 0,
+    justification: "L'objectif affectif agit sur la sensibilité : il cherche à susciter de la sympathie, de l'intérêt, à améliorer l'image de marque ou à faire préférer un produit."
+  },
+  {
+    id: 24,
+    question: "Quelle est la définition d'un objectif de communication de type cognitif ?",
+    options: [
+      "Informer la cible, accroître la notoriété et faire mémoriser la marque (faire savoir)",
+      "Créer une relation émotionnelle et une connivence avec la cible",
+      "Déclencher le comportement d'achat ou de demande de devis en ligne",
+      "Fidéliser les clients déjà conquis sur le long terme"
+    ],
+    correctAnswer: 0,
+    justification: "L'objectif cognitif s'adresse à l'intellect de la cible : faire connaître l'existence d'un nouveau produit, une nouvelle offre ou un changement de marque."
+  },
+  {
+    id: 25,
+    question: "Qu'est-ce que le \"Brief Créatif\" (ou Copy Strategy) en communication ?",
+    options: [
+      "Un document synthétique rédigé pour orienter le travail des équipes de création de l'agence",
+      "Un contrat financier d'achat d'espace publicitaire signé avec les régies",
+      "Un planning de déploiement des actions sur les réseaux sociaux",
+      "Un questionnaire d'évaluation envoyé aux clients à la fin de la campagne"
+    ],
+    correctAnswer: 0,
+    justification: "Le brief créatif est le cahier des charges stratégique rédigé par le chef de publicité ou le planneur stratégique pour inspirer et guider le directeur artistique et le concepteur-rédacteur."
+  },
+  {
+    id: 26,
+    question: "Dans le Brief Créatif, à quoi sert la \"Justification\" (ou Support de la promesse) ?",
+    options: [
+      "À apporter la preuve rationnelle, technique ou objective que la promesse est vraie",
+      "À justifier la facture et les coûts facturés à l'annonceur",
+      "À démontrer la légitimité juridique de la campagne face aux lois en vigueur",
+      "À expliquer le choix des couleurs et polices utilisées par les graphistes"
+    ],
+    correctAnswer: 0,
+    justification: "La justification (ou 'Reason Why') répond à la question du consommateur : 'Pourquoi devrais-je croire votre promesse ?' (ex: argument technique, label, ingrédient)."
+  },
+  {
+    id: 27,
+    question: "Concernant les règles de l'ARPP, pour quel support de communication un avis avant diffusion est-il légalement obligatoire ?",
+    options: [
+      "La télévision",
+      "Les réseaux sociaux (influenceurs et posts de marques)",
+      "L'affichage urbain et les abribus",
+      "La presse écrite régionale"
+    ],
+    correctAnswer: 0,
+    justification: "Seule la publicité télévisée fait l'objet d'un contrôle préalable obligatoire (avis conforme) par les juristes de l'ARPP avant sa diffusion à l'antenne."
+  },
+  {
+    id: 28,
+    question: "Quel outil de communication est une solution française de gestion de campagnes d'emailing et marketing automation ?",
+    options: [
+      "Brevo (ex-Sendinblue)",
+      "Mailchimp",
+      "Hootsuite",
+      "Google Analytics"
+    ],
+    correctAnswer: 0,
+    justification: "Brevo (anciennement Sendinblue) est une suite logicielle d'origine française réputée pour l'emailing, le marketing automation et la gestion de bases de prospects."
+  },
+  {
+    id: 29,
+    question: "À quoi sert principalement la veille d'audience avec Google Analytics ?",
+    options: [
+      "À analyser les comportements des visiteurs, le trafic et l'origine géographique sur un site web",
+      "À planifier et diffuser des messages automatiques sur Facebook",
+      "À concevoir des images libres de droits pour illustrer les articles de blog",
+      "À envoyer des e-mails marketing personnalisés aux abonnés"
+    ],
+    correctAnswer: 0,
+    justification: "Google Analytics est le principal outil d'analyse web permettant d'observer le trafic, le comportement de navigation des internautes et de suivre les conversions."
+  },
+  {
+    id: 30,
+    question: "Qu'est-ce qu'un \"Relais d'opinion\" dans une stratégie de communication ?",
+    options: [
+      "Un intermédiaire crédible (journaliste, influenceur, blogueur) capable d'amplifier le message auprès de son audience",
+      "L'outil technique permettant de diffuser des spots radios régionaux",
+      "L'employé de l'annonceur chargé des relations internes",
+      "Un panneau publicitaire interactif placé dans les gares"
+    ],
+    correctAnswer: 0,
+    justification: "Les relais d'opinion diffusent le message de façon indirecte. Ils ont un pouvoir de prescription et apportent de la crédibilité à la marque."
+  },
+  {
+    id: 31,
+    question: "Quelle limite majeure la Loi Évin impose-t-elle à l'imagerie publicitaire autorisée pour l'alcool ?",
+    options: [
+      "Elle interdit d'associer l'alcool à la fête, à la convivialité, à la séduction ou à la réussite",
+      "Elle impose de n'utiliser que des illustrations dessinées à la main sans photos",
+      "Elle interdit la diffusion de publicité pour l'alcool sur internet",
+      "Elle oblige à présenter le produit uniquement dans son carton d'emballage d'origine"
+    ],
+    correctAnswer: 0,
+    justification: "La loi Évin exige que la publicité pour l'alcool soit purement informative et descriptive. Elle proscrit toute évocation d'une atmosphère festive ou épanouissante."
+  },
+  {
+    id: 32,
+    question: "Dans le budget global d'un annonceur, que désigne le \"budget d'achat d'espace\" ?",
+    options: [
+      "Les sommes dépensées nettes auprès des régies pour diffuser la campagne sur les différents médias",
+      "Les honoraires de conseil versés à l'agence pour la stratégie",
+      "Les frais techniques de tournage, d'impression et de graphisme",
+      "La commission de négociation perçue par le mandataire média"
+    ],
+    correctAnswer: 0,
+    justification: "L'achat d'espace (ou budget média) désigne l'investissement brut ou net consacré à l'affichage des annonces sur les supports (TV, web, panneaux, presse)."
+  },
+  {
+    id: 33,
+    question: "Parmi les leviers du modèle POEM, qu'est-ce que le \"Earned Media\" ?",
+    options: [
+      "La visibilité gratuite générée par le bouche-à-oreille, les partages et les articles de presse spontanés",
+      "Les bannières publicitaires payées sur Google et les réseaux sociaux",
+      "Le site internet et le blog officiel détenus par la marque",
+      "Les courriers papier et catalogues physiques expédiés aux clients"
+    ],
+    correctAnswer: 0,
+    justification: "Le 'Earned' Media est l'exposition 'gagnée' : la marque bénéficie de retombées presse gratuites, d'avis de consommateurs ou de partages viraux sur le web."
   }
 ];
 
@@ -293,6 +449,7 @@ export default function App() {
   const [activeCejmChapter, setActiveCejmChapter] = useState<ChapterContent | null>(null);
 
   // State pour le Quiz
+  const [activeQuestions, setActiveQuestions] = useState<QuizQuestion[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
@@ -301,6 +458,13 @@ export default function App() {
   const [isQuizFinished, setIsQuizFinished] = useState(false);
 
   const resetQuiz = () => {
+    // Mélange de Fisher-Yates du pool de questions
+    const shuffled = [...QUIZ_QUESTIONS];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    setActiveQuestions(shuffled.slice(0, 20));
     setCurrentQuestionIndex(0);
     setSelectedOption(null);
     setIsAnswerSubmitted(false);
@@ -898,8 +1062,17 @@ export default function App() {
   };
 
   const renderQuiz = () => {
+    if (activeQuestions.length === 0) {
+      return (
+        <div className="flex flex-col items-center justify-center py-20 text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent mb-4" />
+          <p className="text-text-muted text-xs font-bold uppercase tracking-wider">Chargement du quiz...</p>
+        </div>
+      );
+    }
+
     if (isQuizFinished) {
-      const percentage = (score / QUIZ_QUESTIONS.length) * 100;
+      const percentage = (score / activeQuestions.length) * 100;
       let reviewMessage = "";
       let emoji = "🏆";
       if (score >= 18) {
@@ -935,7 +1108,7 @@ export default function App() {
 
           <div className="text-left space-y-3.5 max-h-[300px] overflow-y-auto pr-2 no-scrollbar border-t border-border-theme pt-6">
             <h4 className="text-xs font-black uppercase tracking-wider text-text-muted mb-2">Détail des réponses :</h4>
-            {QUIZ_QUESTIONS.map((q, idx) => {
+            {activeQuestions.map((q, idx) => {
               const answer = quizAnswers.find(a => a.questionId === q.id);
               const isCorrect = answer?.isCorrect;
               return (
@@ -970,8 +1143,8 @@ export default function App() {
       );
     }
 
-    const currentQuestion = QUIZ_QUESTIONS[currentQuestionIndex];
-    const progress = ((currentQuestionIndex + 1) / QUIZ_QUESTIONS.length) * 100;
+    const currentQuestion = activeQuestions[currentQuestionIndex];
+    const progress = ((currentQuestionIndex + 1) / activeQuestions.length) * 100;
 
     const handleOptionSelect = (idx: number) => {
       if (isAnswerSubmitted) return;
@@ -992,7 +1165,7 @@ export default function App() {
     const handleNext = () => {
       setSelectedOption(null);
       setIsAnswerSubmitted(false);
-      if (currentQuestionIndex < QUIZ_QUESTIONS.length - 1) {
+      if (currentQuestionIndex < activeQuestions.length - 1) {
         setCurrentQuestionIndex(prev => prev + 1);
       } else {
         setIsQuizFinished(true);
@@ -1009,7 +1182,7 @@ export default function App() {
             </div>
             <div>
               <span className="text-[10px] text-text-muted uppercase font-black tracking-wider block">Question</span>
-              <span className="text-sm font-black text-text-main">{currentQuestionIndex + 1} / {QUIZ_QUESTIONS.length}</span>
+              <span className="text-sm font-black text-text-main">{currentQuestionIndex + 1} / {activeQuestions.length}</span>
             </div>
           </div>
           <div className="flex-1 max-w-[200px] h-2 bg-bg-page border border-border-theme rounded-full overflow-hidden">
@@ -1104,7 +1277,7 @@ export default function App() {
                 onClick={handleNext}
                 className="px-6 py-3.5 bg-accent text-black font-black rounded-xl text-xs md:text-sm shadow-md hover:bg-accent/80 hover:-translate-y-0.5 transition-all cursor-pointer flex items-center justify-center gap-2"
               >
-                {currentQuestionIndex < QUIZ_QUESTIONS.length - 1 ? "Question suivante" : "Voir mon score"}
+                {currentQuestionIndex < activeQuestions.length - 1 ? "Question suivante" : "Voir mon score"}
               </button>
             )}
           </div>
